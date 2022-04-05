@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SeHun</string>
+
+    <!--로그인뷰-->
+    <string name="tv_signin_maintitle">SOPT</string>
+    <string name="tv_signin_login">로그인</string>
+    <string name="tv_signin_id">아이디</string>
+    <string name="tv_signin_pw">비밀번호</string>
+    <string name="et_signin_id">아이디를 입력해주세요</string>
+    <string name="et_signin_pw">비밀번호를 입력해주세요</string>
+    <string name="btn_signin_login">로그인</string>
+    <string name="btn_signin_signup">회원가입</string>
+
+</resources>
