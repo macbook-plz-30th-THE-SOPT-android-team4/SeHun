@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SeHun">
         <activity
-            android:name=".SignUpActivity"
+            android:name=".feature.home.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".feature.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

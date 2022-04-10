@@ -1,4 +1,4 @@
-package com.example.sehun
+package com.example.sehun.feature
 
 import android.app.Activity
 import android.content.Intent
@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sehun.databinding.ActivitySignInBinding
+import com.example.sehun.feature.home.HomeActivity
+import com.example.sehun.shortToast
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
