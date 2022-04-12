@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">SeHun</string>
 
+    <!--HomeActivity-->
+
+
     <!--로그인뷰-->
     <string name="tv_signin_maintitle">SOPT</string>
     <string name="tv_signin_id">아이디</string>
