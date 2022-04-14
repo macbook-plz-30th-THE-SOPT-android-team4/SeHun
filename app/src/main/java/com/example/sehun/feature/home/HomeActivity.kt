@@ -18,7 +18,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun dataBinding() {
         binding.home = HomeData(
-            "",
+            "s",
             "25",
             "ENFJ",
             "우하하하",
