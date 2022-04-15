@@ -1,4 +1,5 @@
 # SeHun
+<img src="https://user-images.githubusercontent.com/81347125/163566859-f4b748cf-1770-4a24-a235-c12678e877de.png" width = "80%">
 <hr>
 
 :date: 세미나 일정
