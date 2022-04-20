@@ -170,7 +170,7 @@ data class HomeData(
 <code>
  data>
 
-        <variable
+        variable
             name="home"
             type="com.example.sehun.feature.home.HomeData" />
     /data>
