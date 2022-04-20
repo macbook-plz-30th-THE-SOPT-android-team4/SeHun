@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SeHun">
         <activity
+            android:name=".feature.DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".feature.home.HomeActivity"
             android:exported="false" />
         <activity
