@@ -96,4 +96,90 @@
         }
 </code>
 </pre>
+
+### :pushpin:사진 비율 1:1 및 스크롤뷰 구현(constraintDimensionRatio, ScrollView)
+<pre>
+<code>
+
+ app:layout_constraintDimensionRatio="1:1"
+ 
+</code>
+</pre>
+
+### :pushpin:DataBinding 구현
+<pre>
+<code>
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+</code>
+</pre>
+
+<pre>
+<code>
+object HomeBindingAdapter {
+    @JvmStatic
+    @BindingAdapter("imgResId")
+    fun setImageResId(imageview: ImageView, resId: Int) {
+        imageview.setImageResource(resId)
+    }
+}
+</code>
+</pre>
+
+<pre>
+<code>
+class HomeActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityHomeBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
+
+        dataBinding()
+    }
+
+    private fun dataBinding() {
+        binding.home = HomeData(
+            "김세훈",
+            "25",
+            "ENFJ",
+            "우하하\n".repeat(100),
+            R.drawable.ic_launcher_foreground
+        )
+    }
+}
+</code>
+</pre>
+
+<pre>
+<code>
+data class HomeData(
+    val name: String,
+    val age: String,
+    val mbti: String,
+    val introduce: String,
+    val resid: Int
+)
+
+</code>
+</pre>
+
+<pre>
+<code>
+ data>
+
+        <variable
+            name="home"
+            type="com.example.sehun.feature.home.HomeData" />
+    /data>
+</code>
+</pre>
+
+<pre>
+<code>
+  app:imgResId="@{home.resid}"
+</code>
+</pre>
 <br>
