@@ -18,10 +18,10 @@ class HomeActivity : AppCompatActivity() {
 
     private fun dataBinding() {
         binding.home = HomeData(
-            "ss2ss",
+            "김세훈",
             "25",
             "ENFJ",
-            "우하하하",
+            "우하하\n".repeat(100),
             R.drawable.ic_launcher_foreground
         )
     }
