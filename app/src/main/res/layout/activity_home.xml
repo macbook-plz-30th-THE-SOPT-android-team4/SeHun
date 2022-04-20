@@ -8,7 +8,7 @@
 
         <variable
             name="home"
-            type="com.example.sehun.feature.home.HomeData" />
+            type="com.example.sehun.data.local.HomeData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -146,6 +146,17 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/tv_home_mbti"
                     app:layout_constraintTop_toTopOf="@+id/tv_home_mbti" />
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/fcv_home_container"
+                    android:name="com.example.sehun.feature.home.FollowerFragment"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_home_introduce" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
