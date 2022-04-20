@@ -147,6 +147,29 @@
                     app:layout_constraintStart_toEndOf="@+id/tv_home_mbti"
                     app:layout_constraintTop_toTopOf="@+id/tv_home_mbti" />
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_home_followerlist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/rectangle_home_gradient"
+                    android:text="@string/btn_home_followerlist"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_home_repositorylist"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_home_introduce" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_home_repositorylist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle_home_gradient"
+                    android:text="@string/btn_home_repositorylist"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btn_home_followerlist"
+                    app:layout_constraintTop_toTopOf="@+id/btn_home_followerlist" />
+
                 <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/fcv_home_container"
                     android:name="com.example.sehun.feature.home.FollowerFragment"
@@ -156,7 +179,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_home_introduce" />
+                    app:layout_constraintTop_toBottomOf="@+id/btn_home_followerlist" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
