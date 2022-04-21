@@ -157,7 +157,7 @@
                     android:textColor="@color/white"
                     app:layout_constraintEnd_toStartOf="@+id/btn_home_repositorylist"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_home_introduce" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_home_userintroduce" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_home_repositorylist"
@@ -171,15 +171,17 @@
                     app:layout_constraintTop_toTopOf="@+id/btn_home_followerlist" />
 
                 <androidx.fragment.app.FragmentContainerView
-                    android:id="@+id/fcv_home_container"
+                    android:id="@+id/fcv_home_swaplist"
                     android:name="com.example.sehun.feature.home.FollowerFragment"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_home_followerlist" />
+                    app:layout_constraintTop_toBottomOf="@+id/btn_home_followerlist"
+                    app:layout_constraintVertical_bias="0.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>

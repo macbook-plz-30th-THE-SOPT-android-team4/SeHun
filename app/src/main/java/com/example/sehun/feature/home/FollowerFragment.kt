@@ -5,6 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.sehun.R
 import com.example.sehun.data.local.HomeFragmentData
 import com.example.sehun.databinding.FragmentFollowerBinding
 
@@ -19,29 +23,43 @@ class FollowerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFollowerBinding.inflate(layoutInflater, container, false)
-        addItem()
-        initMainAdapter()
-        return binding.root
-    }
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        val list = mutableListOf("category1", "category2", "category3", "category4", "category5")
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+        val adapter = LinearListViewAdapter(list)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        val callback = ItemTouchHelperCallback(adapter)
+        val touchHelper = ItemTouchHelper(callback)
+        touchHelper.attachToRecyclerView(recyclerView)
+        recyclerView.adapter = adapter
+        adapter.startDrag(object : LinearListViewAdapter.OnStartDragListener {
+            override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
+                touchHelper.startDrag(viewHolder)
+            }
 
-    private fun initMainAdapter() {
-        binding.rvFollowerList.adapter = followerAdapter
-    }
+            addItem()
+            initMainAdapter()
+            return binding.root
+        }
 
-    private fun addItem() {
-        followerAdapter.itemList.addAll(
-            listOf<HomeFragmentData>(
-                HomeFragmentData("권용민", "1"),
-                HomeFragmentData("김세훈", "2"),
-                HomeFragmentData("이종찬", "3"),
-                HomeFragmentData("이혜빈", "4"),
-                HomeFragmentData("최정원", "5")
+                override fun onDestroyView() {
+            super.onDestroyView()
+            _binding = null
+        }
+
+                private fun initMainAdapter() {
+            binding.rvFollowerList.adapter = followerAdapter
+        }
+
+                private fun addItem() {
+            followerAdapter.itemList.addAll(
+                listOf<HomeFragmentData>(
+                    HomeFragmentData("권용민", "1"),
+                    HomeFragmentData("김세훈", "2"),
+                    HomeFragmentData("이종찬", "3"),
+                    HomeFragmentData("이혜빈", "4"),
+                    HomeFragmentData("최정원", "5")
+                )
             )
-        )
+        }
     }
-}
