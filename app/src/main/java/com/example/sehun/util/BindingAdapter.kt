@@ -1,9 +1,9 @@
-package com.example.sehun.feature.home
+package com.example.sehun.util
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 
-object HomeBindingAdapter {
+object BindingAdapter {
     @JvmStatic
     @BindingAdapter("imgResId")
     fun setImageResId(imageview: ImageView, resId: Int) {
