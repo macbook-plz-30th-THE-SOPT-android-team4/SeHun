@@ -9,12 +9,17 @@ import com.example.sehun.data.local.HomeFragmentData
 import com.example.sehun.databinding.ItemFollowerListBinding
 import com.example.sehun.feature.DetailActivity
 
-class FollowerAdapter() :
-    RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>() {
+class FollowerAdapter() : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>() {
     val itemList = mutableListOf<HomeFragmentData>()
+
+    private var itemClick: ((HomeFragmentData) -> (Unit))? = null
+    fun setClickEvent(listener: (HomeFragmentData) -> Unit) {
+        this.itemClick = listener
+    }
 
     class FollowerViewHolder(
         private val binding: ItemFollowerListBinding,
+        private val itemClick: ((HomeFragmentData) -> Unit)? = null
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(data: HomeFragmentData) {
@@ -30,7 +35,8 @@ class FollowerAdapter() :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowerViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
+        FollowerViewHolder {
         val binding = ItemFollowerListBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
