@@ -39,7 +39,6 @@ class HomeFollowerAdapter(private val itemClick: (FollowerInformation) -> (Unit)
         RecyclerView.ViewHolder(binding.root) {
         fun bind(follower: FollowerInformation) {
             binding.follower = follower
-
             binding.root.setOnClickListener {
                 itemClick(follower)
             }
