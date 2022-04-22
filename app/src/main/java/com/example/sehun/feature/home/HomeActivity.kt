@@ -44,14 +44,14 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private fun callWeb() {
-        startActivity(
-            Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("https://github.com/s9hn?tab=repositories")
-            )
-        )
-    }
+//    private fun callWeb() {
+//        startActivity(
+//            Intent(
+//                Intent.ACTION_VIEW,
+//                Uri.parse("https://github.com/s9hn?tab=repositories")
+//            )
+//        )
+//    }
 
     private fun dataBinding() {
         binding.home = HomeData(
