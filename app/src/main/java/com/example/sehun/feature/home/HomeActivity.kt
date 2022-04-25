@@ -55,7 +55,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun dataBinding() {
         binding.home = HomeData(
-            "김세 훈",
+            "김세훈",
             "25",
             "ENFJ",
             "우하하\n".repeat(5),
