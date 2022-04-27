@@ -1,7 +1,5 @@
 package com.example.sehun.feature.home
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -43,15 +41,6 @@ class HomeActivity : AppCompatActivity() {
             }
         }
     }
-
-//    private fun callWeb() {
-//        startActivity(
-//            Intent(
-//                Intent.ACTION_VIEW,
-//                Uri.parse("https://github.com/s9hn?tab=repositories")
-//            )
-//        )
-//    }
 
     private fun dataBinding() {
         binding.home = HomeData(

@@ -4,12 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.sehun.R
 import com.example.sehun.data.local.HomeFragmentData
 import com.example.sehun.databinding.FragmentFollowerBinding
-import com.example.sehun.util.ItemDecoration
 
 class FollowerFragment : Fragment() {
     private var _binding: FragmentFollowerBinding? = null
@@ -34,16 +31,6 @@ class FollowerFragment : Fragment() {
 
     private fun initMainAdapter() {
         binding.rvFollowerList.adapter = followerAdapter
-    }
-
-    private fun itemDecoration() {
-        binding.rvFollowerList.addItemDecoration(
-            ItemDecoration(
-                3,
-                5,
-                ContextCompat.getColor(requireContext(), R.color.purple_500)
-            )
-        )
     }
 
     private fun addItem() {
