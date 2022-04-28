@@ -21,15 +21,26 @@ class FollowerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFollowerBinding.inflate(layoutInflater, container, false)
-        addItemList()
-        initMainAdapter()
         getInfo()
+        initMainAdapter()
+        addItemList()
         return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun getInfo() {
+        followerAdapter = FollowerAdapter {
+            val intent = Intent(requireContext(), DetailActivity::class.java)
+            intent.apply {
+                putExtra("name", it.name)
+                putExtra("introduce", it.introduce)
+            }
+            startActivity(intent)
+        }
     }
 
     private fun initMainAdapter() {
@@ -46,16 +57,5 @@ class FollowerFragment : Fragment() {
                 HomeFragmentData("최정원", "5555")
             )
         )
-    }
-
-    private fun getInfo() {
-        followerAdapter = FollowerAdapter {
-            val intent = Intent(requireContext(), DetailActivity::class.java)
-            intent.apply {
-                putExtra("name", it.name)
-                putExtra("intro", it.introduce)
-            }
-            startActivity(intent)
-        }
     }
 }
