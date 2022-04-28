@@ -10,10 +10,10 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        getName()
+        setInfo()
     }
 
-    private fun getName() {
+    private fun setInfo() {
         if (intent.hasExtra("name")) {
             val name = intent.getStringExtra("name")
             binding.tvDetailName.text = name.toString()
