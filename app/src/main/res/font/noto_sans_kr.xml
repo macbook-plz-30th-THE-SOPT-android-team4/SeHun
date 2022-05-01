@@ -9,19 +9,19 @@
         app:fontStyle="normal" />
 
     <font
-        app:font="@font/NotoSansKR_Light"
+        app:font="@font/notosanskr_light"
         app:fontStyle="normal" />
 
     <font
-        app:font="@font/NotoSansKR_Medium"
+        app:font="@font/notosanskr_medium"
         app:fontStyle="normal" />
 
     <font
-        app:font="@font/NotoSansKR_Regular"
+        app:font="@font/notosanskr_regular"
         app:fontStyle="normal" />
 
     <font
-        app:font="@font/NotoSansKR_Thin"
+        app:font="@font/notosanskr_thin"
         app:fontStyle="normal" />
 
 
