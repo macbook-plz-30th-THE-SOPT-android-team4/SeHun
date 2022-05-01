@@ -50,7 +50,7 @@ class FollowerFragment : Fragment() {
     private fun addItemList() {
         followerAdapter.itemList.addAll(
             listOf<HomeFragmentData>(
-                HomeFragmentData("권용민", "1111"),
+                HomeFragmentData("권용민", "11111"),
                 HomeFragmentData("김세훈", "2222"),
                 HomeFragmentData("이종찬", "3333"),
                 HomeFragmentData("이혜빈", "4444"),
