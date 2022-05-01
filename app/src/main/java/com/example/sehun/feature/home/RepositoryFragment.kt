@@ -11,7 +11,7 @@ import com.example.sehun.databinding.FragmentRepositoryBinding
 class RepositoryFragment : Fragment() {
     private var _binding: FragmentRepositoryBinding? = null
     private val binding get() = _binding ?: error("Binding is not initialization")
-    private val repositoryAdapter = RepositoryAdapter()
+    private var repositoryAdapter = RepositoryAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
