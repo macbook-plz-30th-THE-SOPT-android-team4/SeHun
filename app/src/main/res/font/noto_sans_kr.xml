@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font
+        app:font="@font/notosanskr_black"
+        app:fontStyle="normal" />
+
+    <font
+        app:font="@font/notosanskr_bold"
+        app:fontStyle="normal" />
+
+    <font
+        app:font="@font/NotoSansKR_Light"
+        app:fontStyle="normal" />
+
+    <font
+        app:font="@font/NotoSansKR_Medium"
+        app:fontStyle="normal" />
+
+    <font
+        app:font="@font/NotoSansKR_Regular"
+        app:fontStyle="normal" />
+
+    <font
+        app:font="@font/NotoSansKR_Thin"
+        app:fontStyle="normal" />
+
+
+</font-family>
