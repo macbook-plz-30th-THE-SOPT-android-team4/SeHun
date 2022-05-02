@@ -19,8 +19,10 @@
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_home.xml" value="0.24742268041237114" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_main.xml" value="0.38645833333333335" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
-        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_sign_up.xml" value="1.1" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/fragment_follower.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/fragment_home.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/fragment_profile.xml" value="0.38645833333333335" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/fragment_repository.xml" value="0.38645833333333335" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/item_follower_list.xml" value="0.38645833333333335" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/item_repository_list.xml" value="0.38645833333333335" />

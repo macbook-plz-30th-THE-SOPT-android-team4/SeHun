@@ -17,7 +17,7 @@
     <string name="tv_signup_name">이름</string>
     <string name="et_signup_name">이름을 입력해주세요.</string>
     <string name="tv_signup_id">아이디</string>
-    <string name="et_signup_id">아이디를 입력해주세요.</string>
+    <string name="et_signup_id">깃허브 아이디를 입력해주세요.</string>
     <string name="tv_signup_pw">비밀번호</string>
     <string name="et_signup_pw">비밀번호를 입력해주세요.</string>
     <string name="btn_signup_done">회원가입</string>
