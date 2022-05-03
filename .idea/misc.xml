@@ -13,20 +13,23 @@
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/drawable/rectangle_signin_color_subpurple.xml" value="0.204" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/drawable/rectangle_signin_width_1dp.xml" value="0.204" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/drawable/selector_edittext_border_1dp.xml" value="0.204" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/drawable/selector_menu_purple.xml" value="0.2745" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/drawable/selector_signin_edittext.xml" value="0.204" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/font/noto_sans_kr.xml" value="0.37777777777777777" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_detail.xml" value="0.38645833333333335" />
-        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_home.xml" value="0.24742268041237114" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_main.xml" value="0.38645833333333335" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/fragment_camera.xml" value="0.20104166666666667" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/fragment_follower.xml" value="0.38645833333333335" />
-        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/fragment_home.xml" value="0.38645833333333335" />
-        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/fragment_profile.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/fragment_profile.xml" value="1.0" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/fragment_repository.xml" value="0.38645833333333335" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/item_follower_list.xml" value="0.38645833333333335" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/item_repository_list.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/menu/menu_home.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/menu/menu_sample.xml" value="0.38645833333333335" />
       </map>
     </option>
   </component>

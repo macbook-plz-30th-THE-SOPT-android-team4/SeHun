@@ -11,6 +11,7 @@
     <color name="sopt_black">#333333</color>
     <color name="sopt_gray">#F6F5F9</color>
     <color name="gray">#B5B5B5</color>
+    <color name="sopt_gray2">#C9C9C9</color>
     <color name="sopt_sub_purple">#BC9AFF</color>
     <color name="sopt_main_purple">#8040FF</color>
 </resources>
