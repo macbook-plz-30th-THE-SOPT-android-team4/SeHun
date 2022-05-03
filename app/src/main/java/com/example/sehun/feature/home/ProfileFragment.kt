@@ -50,10 +50,10 @@ class ProfileFragment : Fragment() {
 
     private fun dataBinding() {
         binding.home = HomeData(
-            "김세훈",
-            "25",
-            "ENFJ",
-            "우하하\n".repeat(5),
+            "SEHUN",
+            "@S2ehun",
+            "코린? 개린?이 입니다.",
+            // "우하하\n".repeat(5),
             R.drawable.ic_launcher_foreground
         )
     }

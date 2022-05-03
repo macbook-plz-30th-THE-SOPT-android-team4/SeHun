@@ -60,8 +60,7 @@
                     android:id="@+id/cl_profile_square"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    >
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:id="@+id/iv_home_userimage"
@@ -85,7 +84,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/iv_home_userimage"
-                        tools:text="KIMSEHUN"/>
+                        tools:text="KIMSEHUN" />
 
                     <TextView
                         android:id="@+id/tv_home_userintroduce"
@@ -98,7 +97,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_home_userage"
-                        tools:text="KIMSEHUN"/>
+                        tools:text="KIMSEHUN" />
 
                     <TextView
                         android:id="@+id/tv_home_userage"
@@ -111,7 +110,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_home_username"
-                        tools:text="S2EHUN"/>
+                        tools:text="S2EHUN" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>

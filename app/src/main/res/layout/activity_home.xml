@@ -24,6 +24,6 @@
         app:itemTextColor="@color/selector_menu_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_home"
-        tools:menu="@menu/menu_home"/>
+        tools:menu="@menu/menu_home" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
