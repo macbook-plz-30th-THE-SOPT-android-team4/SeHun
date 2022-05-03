@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -27,14 +28,15 @@
 
         <TextView
             android:id="@+id/tv_follower_name"
+            tools:text="안녕안녕"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="22dp"
             android:layout_marginTop="25dp"
+            android:fontFamily="@font/notosanskr_bold"
             android:text="@{follower.name}"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold"
+            android:textColor="@color/sopt_black"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/iv_follower_profile"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,9 +48,12 @@
             android:layout_marginBottom="24dp"
             android:ellipsize="end"
             android:maxLines="1"
+            android:fontFamily="@font/notosanskr_regular"
             android:text="@{follower.introduce}"
-            android:textColor="@color/black"
+            android:textColor="@color/sopt_darkgray"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iv_follower_profile" />
+            app:layout_constraintStart_toEndOf="@+id/iv_follower_profile"
+            tools:text="안녕안녕"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
