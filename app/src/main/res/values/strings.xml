@@ -31,8 +31,8 @@
     <string name="tv_home_usermbti">ENFJ</string>
     <string name="tv_home_introduce">소개</string>
     <string name="tv_home_userintroduce">하잉</string>
-    <string name="btn_home_followerlist">팔로워\n목록</string>
-    <string name="btn_home_repositorylist">레포지토리\n목록</string>
+    <string name="btn_home_followerlist">팔로워 목록</string>
+    <string name="btn_home_repositorylist">레포지토리 목록</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

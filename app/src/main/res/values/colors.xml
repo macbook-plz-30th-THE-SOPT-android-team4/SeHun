@@ -12,6 +12,10 @@
     <color name="sopt_gray">#F6F5F9</color>
     <color name="gray">#B5B5B5</color>
     <color name="sopt_gray2">#C9C9C9</color>
+    <color name="sopt_gray3">#8F8F8F</color>
     <color name="sopt_sub_purple">#BC9AFF</color>
     <color name="sopt_main_purple">#8040FF</color>
+    <color name="sopt_darkgray">#444444</color>
+    <color name="sopt_lightgray">#DFDAED</color>
+    <color name="sopt_white_purple">#FAF8FF</color>
 </resources>

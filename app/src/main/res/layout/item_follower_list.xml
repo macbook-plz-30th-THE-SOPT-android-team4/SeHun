@@ -17,9 +17,9 @@
             android:id="@+id/iv_follower_profile"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,12 +29,12 @@
             android:id="@+id/tv_follower_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="25dp"
             android:text="@{follower.name}"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tv_follower_introduce"
             app:layout_constraintStart_toEndOf="@+id/iv_follower_profile"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,13 +42,13 @@
             android:id="@+id/tv_follower_introduce"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginBottom="24dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:text="@{follower.introduce}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iv_follower_profile"
-            app:layout_constraintTop_toBottomOf="@+id/tv_follower_name" />
+            app:layout_constraintStart_toEndOf="@+id/iv_follower_profile" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
