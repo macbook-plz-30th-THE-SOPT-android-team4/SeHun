@@ -41,7 +41,7 @@ class HomeActivity : AppCompatActivity() {
                         vpHomeViewpager2.currentItem = FIRST_FRAGMENT
                         return@setOnItemSelectedListener true
                     }
-                    R.id.menu_profile -> {
+                    R.id.menu_home -> {
                         vpHomeViewpager2.currentItem = SECOND_FRAGMENT
                         return@setOnItemSelectedListener true
                     }
