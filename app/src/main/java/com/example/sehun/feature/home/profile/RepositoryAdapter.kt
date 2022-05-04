@@ -1,4 +1,4 @@
-package com.example.sehun.feature.home
+package com.example.sehun.feature.home.profile
 
 import android.content.Intent
 import android.view.LayoutInflater

@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.sehun.R
 import com.example.sehun.databinding.ActivityHomeBinding
+import com.example.sehun.feature.home.camera.CameraFragment
+import com.example.sehun.feature.home.home.HomeFragment
+import com.example.sehun.feature.home.profile.ProfileFragment
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
