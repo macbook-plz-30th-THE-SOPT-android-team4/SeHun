@@ -21,7 +21,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
         initAdapter()
-
+        initTabLayout()
         return binding.root
     }
 
@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initTabLayout() {
-        val tabLabel = listOf("{@string/}", "d")
+        val tabLabel = listOf("팔로잉", "팔로워")
 
         TabLayoutMediator(
             binding.tlHomefragmentFollow,
