@@ -3,8 +3,6 @@ package com.example.sehun.feature.home.profile
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.sehun.R
 import com.example.sehun.data.local.FollowerFragmentData
 import com.example.sehun.databinding.ItemFollowerListBinding
 
@@ -31,11 +29,6 @@ class FollowerAdapter(private val itemClick: (FollowerFragmentData) -> Unit) :
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(data: FollowerFragmentData) {
-
-            Glide.with(itemView.context)
-                .load(data.img)
-                .circleCrop()
-                .into(binding.ivFollowerProfile)
 
             binding.follower = data
             binding.root.setOnClickListener {

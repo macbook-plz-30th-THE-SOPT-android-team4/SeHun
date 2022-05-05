@@ -50,7 +50,7 @@
             android:id="@+id/tv_detail_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="dd"
+            tools:text="@string/tv_home_name"
             app:layout_constraintStart_toEndOf="@+id/tv_detail_textname"
             app:layout_constraintTop_toTopOf="@+id/tv_detail_textname" />
     </androidx.constraintlayout.widget.ConstraintLayout>

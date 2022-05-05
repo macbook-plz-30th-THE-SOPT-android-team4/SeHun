@@ -41,6 +41,11 @@
     <string name="tv_homefragment_1">FOLLOWING</string>
     <string name="tv_homefragment_2">FOLLOWER</string>
 
+    <!--카메라 프래그먼트-->
+    <string name="tv_camera_photo">사진을 첨부해주세요</string>
+    <string name="tv_camera_upload">첨부하기</string>
+
+
     <!-- 바텀 네비게이션 -->
     <string name="menu_profile">프로필</string>
     <string name="menu_home">홈</string>
