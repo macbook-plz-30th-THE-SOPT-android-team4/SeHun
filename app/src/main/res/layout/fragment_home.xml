@@ -36,6 +36,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
+        app:tabRippleColor="@color/sopt_main_purple"
+        app:tabTextAppearance="@style/tab_text"
+        app:tabTextColor="@color/gray"
+        app:tabSelectedTextColor="@color/sopt_main_purple"
+        app:tabIndicatorColor="@color/sopt_main_purple"
         app:layout_constraintTop_toBottomOf="@+id/tv_homefragment_github">
 
         <com.google.android.material.tabs.TabItem
