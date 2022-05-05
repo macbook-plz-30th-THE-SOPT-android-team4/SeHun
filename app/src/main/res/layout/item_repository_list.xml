@@ -7,7 +7,7 @@
 
         <variable
             name="repository"
-            type="com.example.sehun.data.local.HomeFragmentData" />
+            type="com.example.sehun.data.local.RepositoryFragmentData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

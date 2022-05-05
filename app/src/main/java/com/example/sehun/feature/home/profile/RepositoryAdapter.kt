@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sehun.data.local.HomeFragmentData
+import com.example.sehun.data.local.RepositoryFragmentData
 import com.example.sehun.databinding.ItemRepositoryListBinding
 import com.example.sehun.feature.DetailActivity
 
 class RepositoryAdapter : RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder>() {
 
-    val itemList = mutableListOf<HomeFragmentData>()
+    val itemList = mutableListOf<RepositoryFragmentData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
         val binding = ItemRepositoryListBinding.inflate(
@@ -30,7 +30,7 @@ class RepositoryAdapter : RecyclerView.Adapter<RepositoryAdapter.RepositoryViewH
         private val binding: ItemRepositoryListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(data: HomeFragmentData) {
+        fun onBind(data: RepositoryFragmentData) {
             binding.repository = data
             itemView.setOnClickListener {
                 val name = binding.tvRepositoryName.text.toString()

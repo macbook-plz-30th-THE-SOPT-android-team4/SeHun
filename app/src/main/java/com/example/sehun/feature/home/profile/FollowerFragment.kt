@@ -6,7 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.sehun.data.local.HomeFragmentData
+import com.example.sehun.R
+import com.example.sehun.data.local.FollowerFragmentData
 import com.example.sehun.databinding.FragmentFollowerBinding
 import com.example.sehun.feature.DetailActivity
 
@@ -49,12 +50,12 @@ class FollowerFragment : Fragment() {
 
     private fun addItemList() {
         followerAdapter.itemList.addAll(
-            listOf<HomeFragmentData>(
-                HomeFragmentData("권용민", "1111"),
-                HomeFragmentData("김세훈", "2222"),
-                HomeFragmentData("이종찬", "3333"),
-                HomeFragmentData("이혜빈", "4444"),
-                HomeFragmentData("최정원", "5555")
+            listOf<FollowerFragmentData>(
+                FollowerFragmentData("권용민", "1111", R.drawable.yongmin),
+                FollowerFragmentData("김세훈", "2222", R.drawable.sehun),
+                FollowerFragmentData("이종찬", "3333", R.drawable.jongchan),
+                FollowerFragmentData("이혜빈", "4444", R.drawable.hyebin),
+                FollowerFragmentData("최정원", "5555", R.drawable.jungwon)
             )
         )
     }

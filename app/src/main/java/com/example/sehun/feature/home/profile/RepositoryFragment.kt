@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.sehun.data.local.HomeFragmentData
+import com.example.sehun.data.local.RepositoryFragmentData
 import com.example.sehun.databinding.FragmentRepositoryBinding
 
 class RepositoryFragment : Fragment() {
@@ -35,12 +35,12 @@ class RepositoryFragment : Fragment() {
 
     private fun addItem() {
         repositoryAdapter.itemList.addAll(
-            listOf<HomeFragmentData>(
-                HomeFragmentData("권용민 과제\n레포지토리", "파트과제1"),
-                HomeFragmentData("김세훈 과제\n레포지토리", "파트과제2"),
-                HomeFragmentData("이종찬 과제\n레포지토리", "파트과제3"),
-                HomeFragmentData("이혜빈 과제\n레포지토리", "파트과제4"),
-                HomeFragmentData("최정원 과제\n레포지토리", "파트과제5")
+            listOf<RepositoryFragmentData>(
+                RepositoryFragmentData("권용민 과제\n레포지토리", "파트과제1"),
+                RepositoryFragmentData("김세훈 과제\n레포지토리", "파트과제2"),
+                RepositoryFragmentData("이종찬 과제\n레포지토리", "파트과제3"),
+                RepositoryFragmentData("이혜빈 과제\n레포지토리", "파트과제4"),
+                RepositoryFragmentData("최정원 과제\n레포지토리", "파트과제5")
             )
         )
     }
