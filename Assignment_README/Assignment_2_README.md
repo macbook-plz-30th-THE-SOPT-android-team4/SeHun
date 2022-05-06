@@ -1,21 +1,13 @@
-## :notebook_with_decorative_cover:1주차 필수과제 : 로그인, 회원가입, 자기소개 페이지 만들기
-<img src="https://user-images.githubusercontent.com/81347125/164273755-3fdae97f-48f9-493c-a734-a2c2a08f1aad.jpg" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/164275877-09af936b-fb05-45b4-989d-484f41271725.jpg" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/164275892-ea6f48d3-448b-49ba-9e08-f8e01043bec9.jpg" width="33%">
-<br>
-
-## :notebook_with_decorative_cover:1주차 성장과제 : 화면이동 + @, 사진 1:1 비율 및 스크롤 구현
-<img src="https://user-images.githubusercontent.com/81347125/164283543-546238d9-593a-44f3-81b8-27174ba3d30c.jpg" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/164283553-a906587e-8c60-4fb1-bd25-bd767869635f.jpg" width = "33%"> 
-<br>
-
-## :notebook_with_decorative_cover:1주차 도전과제 : DataBinding 및 MVVM 구현
-<img src="https://user-images.githubusercontent.com/81347125/164284287-2224e365-c1ee-41a8-91c1-46770970ea4a.jpg" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/164284514-c3f22daf-7efe-46d2-8e56-44c50a24e244.jpg" width = "33%"> 
-<br>
-
-
 ## :notebook_with_decorative_cover:구현 결과
-<img src="https://user-images.githubusercontent.com/81347125/164276484-398e7dd2-a414-46dc-b4f5-8d4139234367.gif" width="30%"> 
+<img src="https://user-images.githubusercontent.com/81347125/167109903-d18f55f1-ec5f-4558-a3ad-17d20706f196.gif" width="30%"> 
 <br>
 
-## :notebook_with_decorative_cover:과제 리뷰
+
+
+## :notebook_with_decorative_cover:2주차 필수과제 : Follower, Repository Fragment에 RecyclerView 구현
+<img src="https://user-images.githubusercontent.com/81347125/167101051-5d32e5c2-41f0-445a-981d-0727276ceae6.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101048-0037fd6b-d06f-4cc6-8ec8-44d387a2eff2.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101046-1126c3d9-8361-438e-8680-efe5c4dafbc3.png" width="33%">
+<br>
+
 ### :pushpin:로그인 페이지 만들기(SignInActivity)
 <pre>
 <code>
@@ -106,21 +98,13 @@
 </code>
 </pre>
 
-### :pushpin:DataBinding 구현
-<pre>
-<code>
-    buildFeatures {
-        dataBinding true
-        viewBinding true
-    }
-</code>
-</pre>
+## :notebook_with_decorative_cover:2주차 성장과제 : Intent 전달, RecyclerView item Event 및 ItemDecoration 구현 
+<img src="https://user-images.githubusercontent.com/81347125/167101041-465064d0-2caa-4178-8149-93db80038127.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101036-348e2e96-9e72-4840-92d0-2a7e353d02b3.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101026-f49cff09-7b41-42d4-b81d-e8d999aa6edc.png" width="33%">
+<br>
 
-<pre>
-<code>
-object HomeBindingAdapter {
-    @JvmStatic
-    @BindingAdapter("imgResId")
+## :notebook_with_decorative_cover:2주차 도전과제 : 보일러 플레이트 코드 및 notifyDataSetChanged 개선방안
+<img src="https://user-images.githubusercontent.com/81347125/167100998-7f1b1e02-c798-43c4-9a42-736913aa13b6.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167100964-20953aef-21e9-43a0-961d-5bff0e6e4f07.png" width = "33%"> 
+<br>ter("imgResId")
     fun setImageResId(imageview: ImageView, resId: Int) {
         imageview.setImageResource(resId)
     }
