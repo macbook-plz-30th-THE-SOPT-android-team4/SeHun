@@ -37,8 +37,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="@string/et_signin_id"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_signin_id" />
@@ -62,8 +62,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:inputType="textPassword"
         android:hint="@string/et_signin_pw"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_signin_pw" />
@@ -75,9 +75,9 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="5dp"
+        android:background="@color/black"
         android:text="@string/btn_signin_login"
         android:textColor="@color/white"
-        android:background="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/btn_signin_signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -89,8 +89,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="40dp"
-        android:text="@string/btn_signin_signup"
         android:background="@color/teal_200"
+        android:text="@string/btn_signin_signup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
