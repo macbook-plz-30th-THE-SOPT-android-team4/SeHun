@@ -172,9 +172,8 @@
 
                 <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/fcv_home_swaplist"
-                    android:name="com.example.sehun.feature.home.FollowerFragment"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginTop="30dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
