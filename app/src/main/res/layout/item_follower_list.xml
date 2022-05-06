@@ -22,9 +22,9 @@
             android:layout_marginStart="21dp"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
+            android:background="@drawable/circle_profile_border_2dp"
             android:padding="1dp"
             app:imgGlide="@{follower.img}"
-            android:background="@drawable/circle_profile_border_2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,7 +32,6 @@
 
         <TextView
             android:id="@+id/tv_follower_name"
-            tools:text="안녕안녕"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="22dp"
@@ -42,7 +41,8 @@
             android:textColor="@color/sopt_black"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/iv_follower_profile"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="안녕안녕" />
 
         <TextView
             android:id="@+id/tv_follower_introduce"
@@ -51,13 +51,13 @@
             android:layout_marginStart="22dp"
             android:layout_marginBottom="24dp"
             android:ellipsize="end"
-            android:maxLines="1"
             android:fontFamily="@font/notosanskr_regular"
+            android:maxLines="1"
             android:text="@{follower.introduce}"
             android:textColor="@color/sopt_darkgray"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_follower_profile"
-            tools:text="안녕안녕"/>
+            tools:text="안녕안녕" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

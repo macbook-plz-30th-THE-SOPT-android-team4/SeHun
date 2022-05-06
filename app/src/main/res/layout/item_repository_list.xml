@@ -38,14 +38,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="24dp"
             android:ellipsize="end"
-            android:maxLines="1"
             android:fontFamily="@font/notosanskr_regular"
+            android:maxLines="1"
             android:text="@{repository.introduce}"
-            android:textSize="14sp"
             android:textColor="@color/sopt_darkgray"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_repository_name"
             tools:text="안드로이드" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

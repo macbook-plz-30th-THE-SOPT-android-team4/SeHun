@@ -1,5 +1,6 @@
 package com.example.sehun.feature.home.profile
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -48,6 +49,7 @@ class FollowerFragment : Fragment() {
         binding.rvFollowerList.adapter = followerAdapter
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun addItemList() {
         followerAdapter.itemList.addAll(
             listOf<FollowerFragmentData>(
@@ -58,5 +60,6 @@ class FollowerFragment : Fragment() {
                 FollowerFragmentData("최정원", "5555", R.drawable.jungwon)
             )
         )
+        followerAdapter.notifyDataSetChanged()
     }
 }
