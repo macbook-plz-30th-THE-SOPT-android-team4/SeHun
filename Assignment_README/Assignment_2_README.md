@@ -1,22 +1,13 @@
+## :notebook_with_decorative_cover:구현 결과
+<img src="https://user-images.githubusercontent.com/81347125/167109903-d18f55f1-ec5f-4558-a3ad-17d20706f196.gif" width="30%"> 
+<br>
+
+
+
 ## :notebook_with_decorative_cover:2주차 필수과제 : Follower, Repository Fragment에 RecyclerView 구현
 <img src="https://user-images.githubusercontent.com/81347125/167101051-5d32e5c2-41f0-445a-981d-0727276ceae6.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101048-0037fd6b-d06f-4cc6-8ec8-44d387a2eff2.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101046-1126c3d9-8361-438e-8680-efe5c4dafbc3.png" width="33%">
 <br>
 
-## :notebook_with_decorative_cover:2주차 성장과제 : Intent 전달, RecyclerView item Event 및 ItemDecoration 구현 
-<img src="https://user-images.githubusercontent.com/81347125/167101041-465064d0-2caa-4178-8149-93db80038127.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101036-348e2e96-9e72-4840-92d0-2a7e353d02b3.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101026-f49cff09-7b41-42d4-b81d-e8d999aa6edc.png" width="33%">
-<br>
-
-## :notebook_with_decorative_cover:2주차 도전과제 : 보일러 플레이트 코드 및 notifyDataSetChanged 개선방안
-<img src="https://user-images.githubusercontent.com/81347125/167100998-7f1b1e02-c798-43c4-9a42-736913aa13b6.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167100964-20953aef-21e9-43a0-961d-5bff0e6e4f07.png" width = "33%"> 
-<br>
-
-
-## :notebook_with_decorative_cover:구현 결과
-<img src="https://user-images.githubusercontent.com/81347125/164276484-398e7dd2-a414-46dc-b4f5-8d4139234367.gif" width="30%"> 
-<br>
-
-
-## :notebook_with_decorative_cover:과제 리뷰
 ### :pushpin:로그인 페이지 만들기(SignInActivity)
 <pre>
 <code>
@@ -107,21 +98,13 @@
 </code>
 </pre>
 
-### :pushpin:DataBinding 구현
-<pre>
-<code>
-    buildFeatures {
-        dataBinding true
-        viewBinding true
-    }
-</code>
-</pre>
+## :notebook_with_decorative_cover:2주차 성장과제 : Intent 전달, RecyclerView item Event 및 ItemDecoration 구현 
+<img src="https://user-images.githubusercontent.com/81347125/167101041-465064d0-2caa-4178-8149-93db80038127.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101036-348e2e96-9e72-4840-92d0-2a7e353d02b3.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101026-f49cff09-7b41-42d4-b81d-e8d999aa6edc.png" width="33%">
+<br>
 
-<pre>
-<code>
-object HomeBindingAdapter {
-    @JvmStatic
-    @BindingAdapter("imgResId")
+## :notebook_with_decorative_cover:2주차 도전과제 : 보일러 플레이트 코드 및 notifyDataSetChanged 개선방안
+<img src="https://user-images.githubusercontent.com/81347125/167100998-7f1b1e02-c798-43c4-9a42-736913aa13b6.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167100964-20953aef-21e9-43a0-961d-5bff0e6e4f07.png" width = "33%"> 
+<br>ter("imgResId")
     fun setImageResId(imageview: ImageView, resId: Int) {
         imageview.setImageResource(resId)
     }
