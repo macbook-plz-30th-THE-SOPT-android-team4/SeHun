@@ -21,7 +21,7 @@
 |  <center>분류</center> |  <center>내용</center> |  <center>README 이동</center> |  <center>기간</center> 
 |:--------:|:--------:|:--------:|:--------:|
 |**1주차 세미나**|안드로이드 기초와 View/ViewGroup|-|22/04/02
-|**1주차 과제**|로그인, 회원가입 및 홈 뷰 구현|[Link💚](https:)|~22/04/10
+|**1주차 과제**|로그인, 회원가입 및 홈 뷰 구현|[Link💚](https://github.com/macbook-plz-30th-THE-SOPT-android-team4/SeHun/blob/main/Assignment_README/Assignment_1_README.md)|~22/04/10
 <hr>
 
 
