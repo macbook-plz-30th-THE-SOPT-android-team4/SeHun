@@ -161,7 +161,7 @@
          type="com.example.sehun.feature.home.HomeData" />
  </data>
  ```
- > 3. Data Class 작성
+ > 3. Data Class 생성
  ``` kotlin
  data class HomeData(
     ...
@@ -193,7 +193,7 @@
  ...
  ```
  #### 2. DataBinding을 사용해 이미지 넣기
- > 1. BindingAdapter object 파일 생성 및 함수 구현
+ > 1. BindingAdapter object, 함수 구현
   ``` kotlin
   @JvmStatic
   @BindingAdapter("imgResId") // 사용하게 될 attribute
