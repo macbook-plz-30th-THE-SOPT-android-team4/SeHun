@@ -24,7 +24,7 @@ class SignInActivity : AppCompatActivity() {
                 val myData: Intent? = result.data
 
                 binding.etSigninId.setText(myData?.getStringExtra("id"))
-                binding.etSigninPw.setText(myData?.getStringExtra("pw"))
+                binding.etSigninPw.text.clear()
             }
         }
 
@@ -47,6 +47,7 @@ class SignInActivity : AppCompatActivity() {
                     initNetwork()
                 }
             }
+
             btnSigninSignup.setOnClickListener {
                 resultLauncher.launch(Intent(this@SignInActivity, SignUpActivity::class.java))
             }
@@ -68,13 +69,13 @@ class SignInActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
 
-                    shortToast("${data?.email}님 ㅎㅇ")
+                    shortToast("${data?.email}님 환영합니다!")
                     startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
-                } else shortToast("ㄲㅂ")
+                } else shortToast("잘못된 아이디 혹은 패스워드입니다")
             }
 
             override fun onFailure(call: Call<ResponseSignIn>, t: Throwable) {
-                Log.e("ㅄ", "ㅂㅂ")
+                Log.e("ㄹㅇ", "ㅋㅋ")
             }
         })
     }

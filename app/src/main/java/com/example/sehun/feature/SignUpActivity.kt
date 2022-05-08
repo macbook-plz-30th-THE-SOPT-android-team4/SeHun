@@ -33,7 +33,7 @@ class SignUpActivity : AppCompatActivity() {
                 val etPw = etSignupPw.text.toString()
 
                 if (etId.isEmpty() || etPw.isEmpty() || etName.isEmpty()) {
-                    shortToast("입력되지 않은 정보가 있습니다")
+                    shortToast("입력되지 않은 정보가 있습니다!")
                 } else {
                     initNetwork()
                 }
@@ -46,9 +46,7 @@ class SignUpActivity : AppCompatActivity() {
             name = binding.etSignupName.text.toString(),
             id = binding.etSignupId.text.toString(),
             password = binding.etSignupPw.text.toString()
-
         )
-
         val call: Call<ResponseSignUp> = SoptClient.soptService.postSignUp(requestSignUp)
 
         call.enqueue(object : Callback<ResponseSignUp> {
@@ -57,23 +55,21 @@ class SignUpActivity : AppCompatActivity() {
                 response: Response<ResponseSignUp>
             ) {
                 if (response.isSuccessful) {
-                    val data = response.body()?.data
-                    shortToast("회원가입이 완료되었습니다")
-                    passingIntent(requestSignUp.id, requestSignUp.password)
+                    shortToast("회원가입이 완료되었습니다!")
+                    passingIntent(requestSignUp.id)
                 } else shortToast("ㄲㅂ")
             }
 
             override fun onFailure(call: Call<ResponseSignUp>, t: Throwable) {
-                Log.e("ㅄ", "ㅂㅂ")
+                Log.e("ㄹㅇ", "ㅋㅋ")
             }
         })
     }
 
-    private fun passingIntent(etId: String, etPw: String) {
+    private fun passingIntent(etId: String) {
         val intent = Intent(this, SignInActivity::class.java)
 
         intent.putExtra("id", etId)
-        intent.putExtra("pw", etPw)
         setResult(Activity.RESULT_OK, intent)
         finish()
     }
