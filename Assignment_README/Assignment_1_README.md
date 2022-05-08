@@ -123,7 +123,7 @@
  }
   ```
  
- #### 2. 스크롤 뷰 구현 및 이미지 비율 1:1 설정
+ #### 2. 스크롤 뷰 구현
  > HomeActivity.xml에 ScrollView 생성
   ``` kotlin
  <androidx.core.widget.NestedScrollView
