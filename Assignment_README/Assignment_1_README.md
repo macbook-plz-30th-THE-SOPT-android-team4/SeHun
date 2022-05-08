@@ -178,7 +178,7 @@
         dataBinding()
     }
  ```
- > 5. data class 연결
+ > 5. Data class 연결
  ``` kotlin
  private fun dataBinding() {
     binding.home = HomeData(
@@ -206,6 +206,7 @@
  app:imgResId="@{home.resid}"
  ```
  
- ViewBinding과 DataBinding의 개념:
- registerForActivityResult의 개념:
-
+ ---
+## &#128204; 추가자료
+#### 1. ViewBinding과 DataBinding 더 [알아보기](https://s2ehun.tistory.com/)
+#### 2. registerForActivityResult 더 [알아보기](https://s2ehun.tistory.com/)
