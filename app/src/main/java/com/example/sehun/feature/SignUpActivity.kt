@@ -1,5 +1,7 @@
 package com.example.sehun.feature
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -25,25 +27,16 @@ class SignUpActivity : AppCompatActivity() {
     private fun clickEvent() {
         with(binding) {
             btnSignupDone.setOnClickListener {
-                initNetwork()
-//                val etName = etSignupName.text.toString()
-//                val etId = etSignupId.text.toString()
-//                val etPw = etSignupPw.text.toString()
-//
-//                fun passingIntent() {
-//                    val intent = Intent(this@SignUpActivity, SignInActivity::class.java)
-//                    intent.putExtra("id", etId)
-//                    intent.putExtra("pw", etPw)
-//                    setResult(Activity.RESULT_OK, intent)
-//                    finish()
-//                }
-//
-//                if (etId.isEmpty() || etPw.isEmpty() || etName.isEmpty()) {
-//                    shortToast("입력되지 않은 정보가 있습니다")
-//                } else {
-//                    shortToast("회원가입이 완료되었습니다")
-//                    passingIntent()
-//                }
+
+                val etName = etSignupName.text.toString()
+                val etId = etSignupId.text.toString()
+                val etPw = etSignupPw.text.toString()
+
+                if (etId.isEmpty() || etPw.isEmpty() || etName.isEmpty()) {
+                    shortToast("입력되지 않은 정보가 있습니다")
+                } else {
+                    initNetwork()
+                }
             }
         }
     }
@@ -55,6 +48,7 @@ class SignUpActivity : AppCompatActivity() {
             password = binding.etSignupPw.text.toString()
 
         )
+
         val call: Call<ResponseSignUp> = SoptClient.soptService.postSignUp(requestSignUp)
 
         call.enqueue(object : Callback<ResponseSignUp> {
@@ -64,9 +58,8 @@ class SignUpActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful) {
                     val data = response.body()?.data
-                    Log.e("dd", "$data")
-
-                    shortToast("qq")
+                    shortToast("회원가입이 완료되었습니다")
+                    passingIntent(requestSignUp.id, requestSignUp.password)
                 } else shortToast("ㄲㅂ")
             }
 
@@ -74,5 +67,14 @@ class SignUpActivity : AppCompatActivity() {
                 Log.e("ㅄ", "ㅂㅂ")
             }
         })
+    }
+
+    private fun passingIntent(etId: String, etPw: String) {
+        val intent = Intent(this, SignInActivity::class.java)
+
+        intent.putExtra("id", etId)
+        intent.putExtra("pw", etPw)
+        setResult(Activity.RESULT_OK, intent)
+        finish()
     }
 }
