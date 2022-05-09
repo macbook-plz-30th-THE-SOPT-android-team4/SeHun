@@ -1,4 +1,4 @@
-package com.example.sehun.feature.home
+package com.example.sehun.data.local
 
 data class HomeData(
     val name: String,

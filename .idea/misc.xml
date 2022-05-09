@@ -3,10 +3,35 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_home.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/drawable/rectangle_home_border_3dp.xml" value="0.204" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_detail.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_home.xml" value="0.24742268041237114" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_main.xml" value="0.38645833333333335" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_sign_in.xml" value="0.31574074074074077" />
         <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/activity_sign_up.xml" value="0.3828125" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/fragment_follower.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/fragment_repository.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/item_follower_list.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android-Work/SeHun/app/src/main/res/layout/item_repository_list.xml" value="0.38645833333333335" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/drawable/ic_img_github.xml" value="0.164" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/drawable/rectangle_button_border_5dp.xml" value="0.1" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/drawable/rectangle_home_border_3dp.xml" value="0.164" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/drawable/rectangle_signin_border_5dp.xml" value="0.164" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/drawable/rectangle_signin_color_mainpurple.xml" value="0.176" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/drawable/rectangle_signin_color_subpurple.xml" value="0.164" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/drawable/rectangle_signin_width_1dp.xml" value="0.164" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/drawable/selector_signin_edittext.xml" value="0.164" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/font/noto_sans_kr.xml" value="0.2794871794871795" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/layout-v28/activity_sign_in.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/layout/activity_home.xml" value="0.2" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/layout/activity_sign_in.xml" value="0.8" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/layout/fragment_follow.xml" value="0.1" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/layout/fragment_follower.xml" value="0.1" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/layout/fragment_home.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/layout/fragment_repository.xml" value="0.1" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/layout/item_follower_list.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/82109/Desktop/and/SeHun30/SeHun/app/src/main/res/layout/item_repository_list.xml" value="0.1" />
       </map>
     </option>
   </component>

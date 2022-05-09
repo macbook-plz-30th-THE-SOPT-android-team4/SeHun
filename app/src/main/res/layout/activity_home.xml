@@ -8,7 +8,7 @@
 
         <variable
             name="home"
-            type="com.example.sehun.feature.home.HomeData" />
+            type="com.example.sehun.data.local.HomeData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -146,6 +146,42 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/tv_home_mbti"
                     app:layout_constraintTop_toTopOf="@+id/tv_home_mbti" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_home_followerlist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/rectangle_home_gradient"
+                    android:text="@string/btn_home_followerlist"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_home_repositorylist"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_home_userintroduce" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_home_repositorylist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle_home_gradient"
+                    android:text="@string/btn_home_repositorylist"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btn_home_followerlist"
+                    app:layout_constraintTop_toTopOf="@+id/btn_home_followerlist" />
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/fcv_home_swaplist"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_home_followerlist"
+                    app:layout_constraintVertical_bias="0.0" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
