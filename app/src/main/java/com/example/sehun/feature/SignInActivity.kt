@@ -12,8 +12,7 @@ import com.example.sehun.shortToast
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
     val resultLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-        { result ->
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val myData: Intent? = result.data
 
@@ -48,5 +47,4 @@ class SignInActivity : AppCompatActivity() {
             }
         }
     }
-
 }

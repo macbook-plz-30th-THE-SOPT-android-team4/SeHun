@@ -21,7 +21,7 @@ class HomeActivity : AppCompatActivity() {
             "김세훈",
             "25",
             "ENFJ",
-            "우하하하",
+            "우하하하".repeat(30),
             R.drawable.ic_launcher_foreground
         )
     }
