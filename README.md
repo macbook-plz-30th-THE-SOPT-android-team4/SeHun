@@ -31,7 +31,7 @@
 |  <center>분류</center> |  <center>내용</center> |  <center>README 이동</center> |  <center>기간</center> 
 |:--------:|:--------:|:--------:|:--------:|
 |**2주차 세미나**|Fragment와 RecyclerView|-|22/04/09
-|**2주차 과제**|RecyclerView 구현|[Link💚](https:)|~22/04/22
+|**2주차 과제**|RecyclerView 구현|[Link💚](https://github.com/macbook-plz-30th-THE-SOPT-android-team4/SeHun/blob/main/Assignment_README/Assignment_2_README.md)|~22/04/22
 <hr>
 
 
