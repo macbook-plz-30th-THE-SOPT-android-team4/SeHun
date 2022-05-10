@@ -33,7 +33,9 @@
             android:layout_marginTop="30dp"
             android:fillViewport="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_home_userimage">
+            app:layout_constraintTop_toBottomOf="@+id/iv_home_userimage"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="-27dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -173,7 +175,7 @@
                 <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/fcv_home_swaplist"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -185,6 +187,5 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
