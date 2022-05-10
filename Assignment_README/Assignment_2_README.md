@@ -17,7 +17,7 @@
 
 ## &#128204; 과제 리뷰
 
-### &#10004; 필수과제 : Follower, Repository Fragment에 RecyclerView 구현
+### &#10004; 필수과제 : FollowerFragment, RepositoryFragment, RecyclerView 구현
 
 <img src="https://user-images.githubusercontent.com/81347125/167101051-5d32e5c2-41f0-445a-981d-0727276ceae6.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101048-0037fd6b-d06f-4cc6-8ec8-44d387a2eff2.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101046-1126c3d9-8361-438e-8680-efe5c4dafbc3.png" width="33%">
 <br>
@@ -36,37 +36,36 @@
 
  ``` kotlin
  private fun initTransactionEvent() {
-        val followerFragment = FollowerFragment()
-        val repositoryFragment = RepositoryFragment()
-         ...
+     val followerFragment = FollowerFragment()
+     val repositoryFragment = RepositoryFragment()
+     ...
     }
  ```
 
 > 3. FollowerFragment 디폴트로 설정
 
  ``` kotlin
-supportFragmentManager.beginTransaction().add(R.id.fcv_home_swaplist, followerFragment)
-            .commit()
+supportFragmentManager.beginTransaction().add(R.id.fcv_home_swaplist, followerFragment).commit()
  ```
 
 > 4. 버튼 분기 처리
 
  ``` kotlin
- with(binding) {
-            btnHomeFollowerlist.setOnClickListener {
-                supportFragmentManager.beginTransaction().replace(
-                    R.id.fcv_home_swaplist,
-                    followerFragment
-                ).commit()
-            }
+with(binding) {
+    btnHomeFollowerlist.setOnClickListener {
+        supportFragmentManager.beginTransaction().replace(
+            R.id.fcv_home_swaplist,
+            followerFragment
+        ).commit()
+    }
 
-            btnHomeRepositorylist.setOnClickListener {
-                supportFragmentManager.beginTransaction().replace(
-                    R.id.fcv_home_swaplist,
-                    repositoryFragment
-                ).commit()
-            }
-        }
+    btnHomeRepositorylist.setOnClickListener {
+        supportFragmentManager.beginTransaction().replace(
+            R.id.fcv_home_swaplist,
+            repositoryFragment
+        ).commit()
+    }
+}
  ```
 
 #### 2. RecyclerView 구현하기
@@ -120,7 +119,7 @@ supportFragmentManager.beginTransaction().add(R.id.fcv_home_swaplist, followerFr
 > 4. DataClass 추가
 
  ``` kotlin
-data class HomeFragmentData (
+data class HomeFragmentData(
     val name: String,
     val introduce: String
 )
@@ -164,28 +163,28 @@ class FollowerAdapter(private val itemClick: (HomeFragmentData) -> Unit) :
 > 6. RecyclerView 연동
 
  ``` kotlin
-  private fun initMainAdapter() {
-        binding.rvFollowerList.adapter = followerAdapter
-    }
+private fun initMainAdapter() {
+    binding.rvFollowerList.adapter = followerAdapter
+}
  ```
 
 > 7. FollowerFragment에서 RecyclerView item에 데이터 삽입
 
  ``` kotlin
- private fun addItemList() {
-        followerAdapter.itemList.addAll(
-            listOf<HomeFragmentData>(
-                HomeFragmentData("권용민", "1111"),
-                HomeFragmentData("김세훈", "2222"),
-                HomeFragmentData("이종찬", "3333"),
-                HomeFragmentData("이혜빈", "4444"),
-                HomeFragmentData("최정원", "5555")
-            )
+private fun addItemList() {
+    followerAdapter.itemList.addAll(
+        listOf<HomeFragmentData>(
+            HomeFragmentData("권용민", "1111"),
+            HomeFragmentData("김세훈", "2222"),
+            HomeFragmentData("이종찬", "3333"),
+            HomeFragmentData("이혜빈", "4444"),
+            HomeFragmentData("최정원", "5555")
         )
-    }
+    )
+}
  ```
 
-> 7. RepositoryFragment의 RecyclerView는 Grid Layout으로 디자인
+> 8. RepositoryFragment의 RecyclerView는 Grid Layout으로 디자인
 
  ``` kotlin
  app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"        
@@ -214,41 +213,41 @@ class FollowerAdapter(private val itemClick: (HomeFragmentData) -> Unit) :
 
 #### 1. RecyclerView 아이템 클릭 시, 해당 아이템의 이름과 설명 값을 DetailActivity에서 보여주기
 
-> FollowerAdapter의 viewHolder 클래스 내부 onBind함수에 아이템 클릭리스너 구현
+> 1. FollowerAdapter의 viewHolder 클래스 내부 onBind함수에 아이템 클릭리스너 구현
  
  ``` kotlin
- fun onBind(data: HomeFragmentData) {
-            binding.follower = data
-            binding.root.setOnClickListener {
-                itemClick(data)
-            }
-        }
+fun onBind(data: HomeFragmentData) {
+    binding.follower = data
+    binding.root.setOnClickListener {
+        itemClick(data)
+    }
+}
  ```
 
-> FollowerFragment에서 putExtra를 이용해, Intent에 값을 담고 넘겨줌
+> 2. FollowerFragment에서 putExtra를 이용해, Intent에 값을 담고 넘겨줌
 
  ``` kotlin
- private fun getInfo() {
-        followerAdapter = FollowerAdapter {
-            val intent = Intent(requireContext(), DetailActivity::class.java)
-            intent.apply {
-                putExtra("name", it.name)
-                putExtra("introduce", it.introduce)
-            }
-            startActivity(intent)
+private fun getInfo() {
+    followerAdapter = FollowerAdapter {
+        val intent = Intent(requireContext(), DetailActivity::class.java)
+        intent.apply {
+            putExtra("name", it.name)
+            putExtra("introduce", it.introduce)
         }
+        startActivity(intent)
     }
+}
  ```
 
-> Intent 값을 받고, 텍스트 뷰 세팅
+> 3. Intent 값을 받고, 텍스트 뷰 세팅
 
  ``` kotlin
- private fun setInfo() {
-        val name = intent.getStringExtra("name")
-        val intro = intent.getStringExtra("introduce")
-        binding.tvDetailName.text = name.toString()
-        binding.tvDetailDetailintro.text = intro.toString()
-    }
+private fun setInfo() {
+    val name = intent.getStringExtra("name")
+    val intro = intent.getStringExtra("introduce")
+    binding.tvDetailName.text = name.toString()
+    binding.tvDetailDetailintro.text = intro.toString()
+}
  ```
 
 ---
