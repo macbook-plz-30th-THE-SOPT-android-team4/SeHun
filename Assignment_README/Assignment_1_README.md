@@ -81,13 +81,13 @@
 
  ``` kotlin
  btnSigninLogin.setOnClickListener {
-         startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
+     startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
  }
  ```
 
  ``` kotlin
  btnSignUpLogin.setOnClickListener {
-         finish()
+     finish()
  }
  ```
 
@@ -150,7 +150,7 @@
      binding.etSigninId.setText(myData?.getStringExtra("id"))
      binding.etSigninPw.setText(myData?.getStringExtra("pw"))
  }
-  ```
+ ```
 
 #### 2. 스크롤 뷰 구현
 
@@ -160,7 +160,7 @@
  <androidx.core.widget.NestedScrollView
       android:layout_width="match_parent"
       android:layout_height="match_parent"> 
-  ...
+      ...
  </androidx.core.widget.NestedScrollView>
   ```
 
@@ -205,7 +205,7 @@
 
  ``` kotlin
  data class HomeData(
-    ...
+      ...
  )
  ```
 
@@ -218,8 +218,8 @@
      super.onCreate(savedInstanceState)
      binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
 
-        dataBinding()
-    }
+     dataBinding()
+ }
  ```
 
 > 5. Data class 연결
@@ -227,7 +227,7 @@
  ``` kotlin
  private fun dataBinding() {
     binding.home = HomeData(
-            ...
+    ...
     )
  }
  ```
@@ -257,7 +257,6 @@
  ``` kotlin
  app:imgResId="@{home.resid}"
  ```
-
  
 ---
 
