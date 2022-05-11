@@ -32,7 +32,7 @@ class SignUpActivity : AppCompatActivity() {
                 val etId = etSignupId.text.toString()
                 val etPw = etSignupPw.text.toString()
 
-                if (etId.isEmpty() || etPw.isEmpty() || etName.isEmpty()) {
+                if (etId.isEmpty() or etPw.isEmpty() or etName.isEmpty()) {
                     shortToast("입력되지 않은 정보가 있습니다!")
                 } else {
                     initNetwork()

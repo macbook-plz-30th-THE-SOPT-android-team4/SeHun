@@ -41,7 +41,7 @@ class SignInActivity : AppCompatActivity() {
                 val etId = etSigninId.text.toString()
                 val etPw = etSigninPw.text.toString()
 
-                if (etId.isEmpty() || etPw.isEmpty()) {
+                if (etId.isEmpty() or etPw.isEmpty()) {
                     shortToast("로그인 실패")
                 } else {
                     initNetwork()
