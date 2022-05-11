@@ -1,23 +1,23 @@
-package com.example.sehun.feature.home
+package com.example.sehun.feature.home.profile
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sehun.data.local.RepositoryFragmentData
 import com.example.sehun.databinding.ItemRepositoryListBinding
+import com.example.sehun.feature.DetailActivity
 
 class RepositoryAdapter : RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder>() {
 
     val itemList = mutableListOf<RepositoryFragmentData>()
-class RepositoryAdapter(private val itemClick: (HomeFragmentData) -> Unit) :
-    RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder>() {
-    val itemList = mutableListOf<HomeFragmentData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
         val binding = ItemRepositoryListBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
-        return RepositoryViewHolder(binding, itemClick)
+        return RepositoryViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) {
@@ -27,14 +27,18 @@ class RepositoryAdapter(private val itemClick: (HomeFragmentData) -> Unit) :
     override fun getItemCount(): Int = itemList.size
 
     class RepositoryViewHolder(
-        private val binding: ItemRepositoryListBinding,
-        private val itemClick: (HomeFragmentData) -> Unit
+        private val binding: ItemRepositoryListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(data: RepositoryFragmentData) {
             binding.repository = data
-            binding.root.setOnClickListener {
-                itemClick(data)
+            itemView.setOnClickListener {
+                val name = binding.tvRepositoryName.text.toString()
+
+                val repositoryToDetailIntent =
+                    Intent(itemView.context, DetailActivity::class.java)
+                repositoryToDetailIntent.putExtra("name", name)
+                ContextCompat.startActivity(itemView.context, repositoryToDetailIntent, null)
             }
         }
     }
