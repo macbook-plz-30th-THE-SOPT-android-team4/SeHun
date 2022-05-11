@@ -2,53 +2,64 @@ package com.example.sehun.feature.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+import androidx.viewpager2.widget.ViewPager2
 import com.example.sehun.R
-import com.example.sehun.data.local.HomeData
 import com.example.sehun.databinding.ActivityHomeBinding
+import com.example.sehun.feature.home.camera.CameraFragment
+import com.example.sehun.feature.home.home.HomeFragment
+import com.example.sehun.feature.home.profile.ProfileFragment
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
+    private lateinit var viewPagerAdapter: ViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
-
-        dataBinding()
-        initTransactionEvent()
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initAdapter()
+        initBottomNavi()
     }
 
-    private fun initTransactionEvent() {
-        val followerFragment = FollowerFragment()
-        val repositoryFragment = RepositoryFragment()
+    private fun initAdapter() {
+        val fragmentList = listOf(ProfileFragment(), HomeFragment(), CameraFragment())
+        viewPagerAdapter = ViewPagerAdapter(this)
+        viewPagerAdapter.fragments.addAll(fragmentList)
 
-        supportFragmentManager.beginTransaction().add(R.id.fcv_home_swaplist, followerFragment)
-            .commit()
+        binding.vpHomeViewpager2.adapter = viewPagerAdapter
+    }
 
+    private fun initBottomNavi() {
         with(binding) {
-            btnHomeFollowerlist.setOnClickListener {
-                supportFragmentManager.beginTransaction().replace(
-                    R.id.fcv_home_swaplist,
-                    followerFragment
-                ).commit()
-            }
+            vpHomeViewpager2.registerOnPageChangeCallback(object :
+                    ViewPager2.OnPageChangeCallback() {
+                    override fun onPageSelected(position: Int) {
+                        bnvHome.menu.getItem(position).isChecked = true
+                    }
+                })
 
-            btnHomeRepositorylist.setOnClickListener {
-                supportFragmentManager.beginTransaction().replace(
-                    R.id.fcv_home_swaplist,
-                    repositoryFragment
-                ).commit()
+            bnvHome.setOnItemSelectedListener {
+                when (it.itemId) {
+                    R.id.menu_profile -> {
+                        vpHomeViewpager2.currentItem = FIRST_FRAGMENT
+                        return@setOnItemSelectedListener true
+                    }
+                    R.id.menu_home -> {
+                        vpHomeViewpager2.currentItem = SECOND_FRAGMENT
+                        return@setOnItemSelectedListener true
+                    }
+                    else -> {
+                        vpHomeViewpager2.currentItem = THIRD_FRAGMENT
+                        return@setOnItemSelectedListener true
+                    }
+                }
             }
         }
     }
 
-    private fun dataBinding() {
-        binding.home = HomeData(
-            "김세훈",
-            "25",
-            "ENFJ",
-            "우하하\n".repeat(5),
-            R.drawable.ic_launcher_foreground
-        )
+    companion object {
+        const val FIRST_FRAGMENT = 0
+        const val SECOND_FRAGMENT = 1
+        const val THIRD_FRAGMENT = 2
     }
 }

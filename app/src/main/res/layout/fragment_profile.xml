@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="home"
+            type="com.example.sehun.data.local.HomeData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/fcv_home_swaplist"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="9dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_home_followerlist" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_home_followerlist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/selector_edittext_border_1dp"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:paddingStart="45dp"
+                    android:paddingTop="13dp"
+                    android:paddingEnd="45dp"
+                    android:paddingBottom="13dp"
+                    android:text="@string/btn_home_followerlist"
+                    android:textColor="@color/selector_profile_btn_color"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_home_repositorylist"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cl_profile_square" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_home_repositorylist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_edittext_border_1dp"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:paddingStart="34dp"
+                    android:paddingTop="13dp"
+                    android:paddingEnd="35dp"
+                    android:paddingBottom="13dp"
+                    android:text="@string/btn_home_repositorylist"
+                    android:textColor="@color/selector_profile_btn_color"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/btn_home_followerlist"
+                    app:layout_constraintTop_toTopOf="@+id/btn_home_followerlist" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_profile_square"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/sopt_deepgray"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/iv_home_userimage"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="140dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="140dp"
+                        android:background="@drawable/circle_profile_border_2dp"
+                        android:padding="2dp"
+                        app:imgGlide="@{home.resid}"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_home_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:gravity="center"
+                        android:text="@{home.name}"
+                        android:textColor="@color/sopt_white"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_home_userimage"
+                        tools:text="KIMSEHUN" />
+
+                    <TextView
+                        android:id="@+id/tv_home_userintroduce"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:layout_marginBottom="31dp"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:gravity="center"
+                        android:text="@{home.introduce}"
+                        android:textColor="@color/sopt_gray3"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_home_userage"
+                        tools:text="KIMSEHUN" />
+
+                    <TextView
+                        android:id="@+id/tv_home_userage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:gravity="center"
+                        android:text="@{home.insta}"
+                        android:textColor="@color/sopt_lightgray"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_home_username"
+                        tools:text="S2EHUN" />
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="21dp"
+                        android:layout_marginEnd="21dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_group" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
