@@ -32,7 +32,7 @@ class SignUpActivity : AppCompatActivity() {
                     finish()
                 }
 
-                if (etId.isEmpty() || etPw.isEmpty() || etName.isEmpty()) {
+                if (etId.isEmpty() or etPw.isEmpty() or etName.isEmpty()) {
                     shortToast("입력되지 않은 정보가 있습니다")
                 } else {
                     shortToast("회원가입이 완료되었습니다")
