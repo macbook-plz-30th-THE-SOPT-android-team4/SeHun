@@ -41,7 +41,7 @@
 |  <center>분류</center> |  <center>내용</center> |  <center>README 이동</center> |  <center>기간</center> 
 |:--------:|:--------:|:--------:|:--------:|
 |**3주차 세미나**|앱 내 디자인 적용하는 법|-|22/04/23
-|**3주차 과제**|BottomNavigation,TabLayout 구현|[Link💚](https:)|~22/05/06
+|**3주차 과제**|BottomNavigation,TabLayout 구현|[Link💚](https://github.com/macbook-plz-30th-THE-SOPT-android-team4/SeHun/blob/main/Assignment_README/Assignment_3_README.md)|~22/05/06
 <hr>
 
 
