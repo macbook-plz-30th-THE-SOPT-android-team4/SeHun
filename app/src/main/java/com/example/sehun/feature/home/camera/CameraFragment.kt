@@ -24,10 +24,6 @@ class CameraFragment : Fragment() {
             } else
                 requireContext().shortToast("권한요청이 거절되었습니다.")
         }
-    val getContent =
-        registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-            binding.ivCameraSelectedimage.setImageURI(uri)
-        }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,10 +31,6 @@ class CameraFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentCameraBinding.inflate(layoutInflater, container, false)
-
-        binding.btnCameraUpload.setOnClickListener {
-            aboutPermission()
-        }
 
         clickEvent()
         return binding.root
@@ -70,7 +62,10 @@ class CameraFragment : Fragment() {
     }
 
     private fun selectImage() {
-
+        val getContent =
+            registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+                binding.ivCameraSelectedimage.setImageURI(uri)
+            }
         getContent.launch("image/*")
     }
 }
