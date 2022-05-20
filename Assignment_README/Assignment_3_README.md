@@ -267,11 +267,69 @@ fun setGlideImage(imageview: ImageView, image: Int) {
 <img src="https://user-images.githubusercontent.com/81347125/169519541-3d3352d1-8600-4d31-8c50-7566498d00bc.png" width = "40%"> 
 <br>
 
+> 1. Manifest에 권한 추가
 
+ ``` kotlin
+<!--갤러리 권한-->
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<!--카메라 권한-->
+<uses-permission android:name="android.permission.CAMERA" />
+ ```
+ 
+ > 2. CameraFragment에 intent를 이용한 갤러리 접근 관련 메소드 추가
+
+ ``` kotlin
+val requestPermissionLauncher =
+    registerForActivityResult(ActivityResultContracts.RequestPermission()) { result: Boolean ->
+        if (result) {
+            requireContext().shortToast("권한요청이 승인되었습니다.")
+            selectImage()
+        } else
+            requireContext().shortToast("권한요청이 거절되었습니다.")
+    }
+
+private fun aboutPermission() {
+    if (ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        ) == PackageManager.PERMISSION_GRANTED
+    ) {
+        requireContext().shortToast("권한이 이미 있습니다.")
+        selectImage()
+    } else if (ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        ) == PackageManager.PERMISSION_DENIED
+    ) {
+        requireContext().shortToast("권한이 없습니다.")
+        requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+    }
+}
+ ```
+ 
+ > 3. 이미지를 uri형식으로 받고, Glide 처리 후 띄워주기
+
+ ``` kotlin
+val getContent =
+    registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        context?.let {
+            Glide.with(it)
+                .load(uri)
+                .circleCrop()
+                .into(binding.ivCameraSelectedimage)
+        }
+    }
+    
+private fun selectImage() {
+ 
+    getContent.launch("image/*")
+}
+ ```
+ 
 ---
 
 ## &#128204; 추가자료
 
-#### 1. RecyclerView 더 [알아보기](https://s2ehun.tistory.com/)
+#### 1. Glide 더 [알아보기](https://s2ehun.tistory.com/)
 
-#### 2. notifyDataSetChanged 더 [알아보기](https://s2ehun.tistory.com/)
+#### 2. ViewPager2 중첩 스크롤 문제 더 [알아보기](https://s2ehun.tistory.com/)
