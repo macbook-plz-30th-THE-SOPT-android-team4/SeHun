@@ -12,7 +12,7 @@
 
 ## &#128204; 구현 결과
 
-<img src="https://user-images.githubusercontent.com/81347125/167109903-d18f55f1-ec5f-4558-a3ad-17d20706f196.gif" width="25%"> 
+<img src="https://user-images.githubusercontent.com/81347125/167109903-d18f55f1-ec5f-4558-a3ad-17d20706f196.gif" width="60%"> 
 <br>
 
 ## &#128204; 과제 리뷰
