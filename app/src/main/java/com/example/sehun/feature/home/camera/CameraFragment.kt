@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.sehun.databinding.FragmentCameraBinding
 import com.example.sehun.shortToast
 
@@ -26,7 +27,12 @@ class CameraFragment : Fragment() {
         }
     val getContent =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-            binding.ivCameraSelectedimage.setImageURI(uri)
+            context?.let {
+                Glide.with(it)
+                    .load(uri)
+                    .circleCrop()
+                    .into(binding.ivCameraSelectedimage)
+            }
         }
 
     override fun onCreateView(
@@ -35,17 +41,11 @@ class CameraFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentCameraBinding.inflate(layoutInflater, container, false)
-
-        binding.btnCameraUpload.setOnClickListener {
-            aboutPermission()
-        }
-
         clickEvent()
         return binding.root
     }
 
     private fun clickEvent() {
-
         binding.btnCameraUpload.setOnClickListener {
             aboutPermission()
         }
