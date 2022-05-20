@@ -4,15 +4,15 @@
 
 | Task           |1 week|2 week|3week|4 week|5 week|6 week|7 week|
 |----------------|---------------|---------------|----------------|-----------|-----------|-----------|-----------|
-| 필수 과제 | <li> [x] LV 1-1</li><li> [x] LV 1-2</li><li> [x] LV 1-3 | <li> [x] LV 1-1</li><li> [x] LV 1-2</li> |<li> [x] LV 1</li> |　- |　- |　- | 　- |
-| 성장 과제 | <li> [x] LV 2-1</li><li> [x] LV 2-2 | <li> [x] LV 2-1 |<li> [x] LV 2</li> | 　- |　- |　- |　- |
-| 도전 과제 | <li> [x] LV 3-1</li> |　　- |<li> [x] LV 3</li> | 　- |　- |　- |　- |
+| 필수 과제 | <li> [x] LV 1-1</li><li> [x] LV 1-2</li><li> [x] LV 1-3 | <li> [x] LV 1-1</li><li> [x] LV 1-2</li> |<li> [x] LV 1</li> |　-|　-|　-|　-|
+| 성장 과제 | <li> [x] LV 2-1</li><li> [x] LV 2-2 | <li> [x] LV 2-1 |<li> [x] LV 2</li> |　-|　-|　-|　-|
+| 도전 과제 | <li> [x] LV 3-1</li> |　-|<li> [x] LV 3</li> |　-|　-|　-|　-|
 
 <br/>
 
 ## &#128204; 구현 결과
 
-<img src="https://user-images.githubusercontent.com/81347125/167109903-d18f55f1-ec5f-4558-a3ad-17d20706f196.gif" width="25%">
+<img src="https://user-images.githubusercontent.com/81347125/169523368-0f123944-66d8-4520-b6a6-eb9684c2ab44.gif" width="60%">
 <br>
 
 ## &#128204; 과제 리뷰
