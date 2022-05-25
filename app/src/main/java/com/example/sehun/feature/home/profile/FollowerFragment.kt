@@ -29,6 +29,7 @@ class FollowerFragment : Fragment() {
         getInfo()
         initMainAdapter()
         addItemList()
+
         return binding.root
     }
 
@@ -45,8 +46,8 @@ class FollowerFragment : Fragment() {
                 putExtra("introduce", it.introduce)
             }
             startActivity(intent)
-            initNetwork(it.name)
         }
+        initNetwork()
     }
 
     private fun initMainAdapter() {
@@ -67,11 +68,14 @@ class FollowerFragment : Fragment() {
         followerAdapter.notifyDataSetChanged()
     }
 
-    private fun initNetwork(username: String) {
+    private fun initNetwork() {
+        val username: String = "s9hn"
+        Log.d("aaaaaaaaaaaaaaaaa", "aaaaaaaaaaa")
+
         val call = GitClient.soptService.getGit(username)
 
         call.enqueueUtil(onSuccess = {
-            Log.d("dqwe", "${it.data}")
+            Log.d("dqwe", "123123123")
         })
     }
 }

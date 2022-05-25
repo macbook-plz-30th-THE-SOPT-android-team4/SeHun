@@ -26,5 +26,5 @@ interface SoptService {
     @GET("/users/{username}/following")
     fun getGit(
         @Path("username") username: String
-    ): Call<ResponseHome>
+    ): Call<List<ResponseHome>>
 }

@@ -1,7 +1,7 @@
 package com.example.sehun.data.remote.response
 
 data class ResponseHome(
-    val data: List<Data>
+    val data: Data
 ) {
     data class Data(
         val login: String,
