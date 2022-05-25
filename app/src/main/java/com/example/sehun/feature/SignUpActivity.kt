@@ -3,16 +3,14 @@ package com.example.sehun.feature
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sehun.data.remote.SoptClient
 import com.example.sehun.data.remote.request.RequestSignUp
 import com.example.sehun.data.remote.response.ResponseSignUp
 import com.example.sehun.databinding.ActivitySignUpBinding
+import com.example.sehun.enqueueUtil
 import com.example.sehun.shortToast
 import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
@@ -49,20 +47,9 @@ class SignUpActivity : AppCompatActivity() {
         )
         val call: Call<ResponseSignUp> = SoptClient.soptService.postSignUp(requestSignUp)
 
-        call.enqueue(object : Callback<ResponseSignUp> {
-            override fun onResponse(
-                call: Call<ResponseSignUp>,
-                response: Response<ResponseSignUp>
-            ) {
-                if (response.isSuccessful) {
-                    shortToast("회원가입이 완료되었습니다!")
-                    passingIntent(requestSignUp.id)
-                } else shortToast("ㄲㅂ")
-            }
-
-            override fun onFailure(call: Call<ResponseSignUp>, t: Throwable) {
-                Log.e("ㄹㅇ", "ㅋㅋ")
-            }
+        call.enqueueUtil(onSuccess = {
+            shortToast("회원가입이 완료되었습니다!")
+            passingIntent(requestSignUp.id)
         })
     }
 

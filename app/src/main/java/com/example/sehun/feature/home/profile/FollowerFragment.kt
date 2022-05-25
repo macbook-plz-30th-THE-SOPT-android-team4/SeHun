@@ -3,13 +3,16 @@ package com.example.sehun.feature.home.profile
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.sehun.R
 import com.example.sehun.data.local.FollowerFragmentData
+import com.example.sehun.data.remote.GitClient
 import com.example.sehun.databinding.FragmentFollowerBinding
+import com.example.sehun.enqueueUtil
 import com.example.sehun.feature.DetailActivity
 
 class FollowerFragment : Fragment() {
@@ -42,6 +45,7 @@ class FollowerFragment : Fragment() {
                 putExtra("introduce", it.introduce)
             }
             startActivity(intent)
+            initNetwork(it.name)
         }
     }
 
@@ -61,5 +65,13 @@ class FollowerFragment : Fragment() {
             )
         )
         followerAdapter.notifyDataSetChanged()
+    }
+
+    private fun initNetwork(username: String) {
+        val call = GitClient.soptService.getGit(username)
+
+        call.enqueueUtil(onSuccess = {
+            Log.d("dqwe", "${it.data}")
+        })
     }
 }
