@@ -7,12 +7,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sehun.data.remote.SoptClient
 import com.example.sehun.data.remote.request.RequestSignIn
-import com.example.sehun.data.remote.response.ResponseSignIn
 import com.example.sehun.databinding.ActivitySignInBinding
 import com.example.sehun.enqueueUtil
 import com.example.sehun.feature.home.HomeActivity
 import com.example.sehun.shortToast
-import retrofit2.Call
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
@@ -57,10 +55,10 @@ class SignInActivity : AppCompatActivity() {
             id = binding.etSigninId.text.toString(),
             password = binding.etSigninPw.text.toString()
         )
-        val call: Call<ResponseSignIn> = SoptClient.soptService.postSignIn(requestSignIn)
+        val call = SoptClient.soptService.postSignIn(requestSignIn)
 
         call.enqueueUtil(onSuccess = {
-            shortToast("${it.email}님 환영합니다!")
+            shortToast("${it.data?.email}님 환영합니다!")
             startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
         })
     }

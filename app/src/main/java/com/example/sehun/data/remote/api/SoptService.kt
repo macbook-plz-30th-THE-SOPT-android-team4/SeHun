@@ -5,6 +5,7 @@ import com.example.sehun.data.remote.request.RequestSignUp
 import com.example.sehun.data.remote.response.ResponseHome
 import com.example.sehun.data.remote.response.ResponseSignIn
 import com.example.sehun.data.remote.response.ResponseSignUp
+import com.example.sehun.data.remote.response.ResponseWrapper
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -16,12 +17,12 @@ interface SoptService {
     @POST("/auth/signup")
     fun postSignUp(
         @Body body: RequestSignUp
-    ): Call<ResponseSignUp>
+    ): Call<ResponseWrapper<ResponseSignUp>>
 
     @POST("/auth/signin")
     fun postSignIn(
         @Body body: RequestSignIn
-    ): Call<ResponseSignIn>
+    ): Call<ResponseWrapper<ResponseSignIn>>
 
     @GET("/users/{username}/following")
     fun getGit(

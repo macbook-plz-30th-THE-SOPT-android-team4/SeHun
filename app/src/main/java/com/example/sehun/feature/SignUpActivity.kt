@@ -6,11 +6,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sehun.data.remote.SoptClient
 import com.example.sehun.data.remote.request.RequestSignUp
-import com.example.sehun.data.remote.response.ResponseSignUp
 import com.example.sehun.databinding.ActivitySignUpBinding
 import com.example.sehun.enqueueUtil
 import com.example.sehun.shortToast
-import retrofit2.Call
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
@@ -45,7 +43,7 @@ class SignUpActivity : AppCompatActivity() {
             id = binding.etSignupId.text.toString(),
             password = binding.etSignupPw.text.toString()
         )
-        val call: Call<ResponseSignUp> = SoptClient.soptService.postSignUp(requestSignUp)
+        val call = SoptClient.soptService.postSignUp(requestSignUp)
 
         call.enqueueUtil(onSuccess = {
             shortToast("회원가입이 완료되었습니다!")
