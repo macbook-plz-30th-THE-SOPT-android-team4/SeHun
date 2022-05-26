@@ -4,263 +4,332 @@
 
 | Task           |1 week|2 week|3week|4 week|5 week|6 week|7 week|
 |----------------|---------------|---------------|----------------|-----------|-----------|-----------|-----------|
-| 필수 과제 | <ul><li> [x] 1-1</li><li> [x] 1-2</li><li> [x] 1-3 | <ul><li> [x] 1-1</li><li> [x] 1-2</li> |　- |　- |　- |　- | 　- |
-| 성장 과제 | <ul><li> [x] 2-1</li><li> [x] 2-2 | <ul><li> [x] 2-1 |　- | 　- |　- |　- |　- |
-| 도전 과제 | <ul><li> [x] 3-1</li> |　- |　- | 　- |　- |　- |　- |
+| 필수 과제 | <li> [x] LV 1-1</li><li> [x] LV 1-2</li><li> [x] LV 1-3 | <li> [x] LV 1-1</li><li> [x] LV 1-2</li> |<li> [x] LV 1</li> |　-|　-|　-|　-|
+| 성장 과제 | <li> [x] LV 2-1</li><li> [x] LV 2-2 | <li> [x] LV 2-1 |<li> [x] LV 2</li> |　-|　-|　-|　-|
+| 도전 과제 | <li> [x] LV 3-1</li> |　-|<li> [x] LV 3</li> |　-|　-|　-|　-|
 
 <br/>
 
 ## &#128204; 구현 결과
 
-<img src="https://user-images.githubusercontent.com/81347125/167109903-d18f55f1-ec5f-4558-a3ad-17d20706f196.gif" width="25%">
+<img src="https://user-images.githubusercontent.com/81347125/169523368-0f123944-66d8-4520-b6a6-eb9684c2ab44.gif" width="60%">
 <br>
 
 ## &#128204; 과제 리뷰
 
-### &#10004; 필수과제 : FollowerFragment, RepositoryFragment, RecyclerView 구현
+### &#10004; 필수과제 : Design(Font, ViewPager2, BottomNavigation, TabLayout, Glide) 적용
 
-<img src="https://user-images.githubusercontent.com/81347125/167101051-5d32e5c2-41f0-445a-981d-0727276ceae6.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101048-0037fd6b-d06f-4cc6-8ec8-44d387a2eff2.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101046-1126c3d9-8361-438e-8680-efe5c4dafbc3.png" width="33%">
+<img src="https://user-images.githubusercontent.com/81347125/169509966-1c8e9a33-f2db-44c9-b555-508f534a753e.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/169509963-7a23c8f1-7c9a-4dfc-9ab5-84d6b5da5cc6.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/169509955-a86d1753-9410-413a-881c-56499b80073e.png" width="33%">
 <br>
 
-#### 1. Activity에 Fragment 배치하기
 
-> 1. HomeActivity.xml에 FragmentContainerView 배치
+#### 1. Font 적용
 
- ``` kotlin
- <androidx.fragment.app.FragmentContainerView
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content" />
- ```
-
-> 2. Fragment 2개 생성 후, HomeActivity와 Fragment 연동
+> 추후 textAppearance로 수정하기 위해, 따로 fontfamily를 만들지 않고, 바로 적용시킴
 
  ``` kotlin
- private fun initTransactionEvent() {
-     val followerFragment = FollowerFragment()
-     val repositoryFragment = RepositoryFragment()
-     ...
-    }
+  android:fontFamily="@font/notosanskr_bold"
  ```
+ 
+#### 2. ViewPager2 및 BottomNavigation 구현
 
-> 3. FollowerFragment 디폴트로 설정
-
- ``` kotlin
-supportFragmentManager.beginTransaction().add(R.id.fcv_home_swaplist, followerFragment).commit()
- ```
-
-> 4. 버튼 분기 처리
-
- ``` kotlin
-with(binding) {
-    btnHomeFollowerlist.setOnClickListener {
-        supportFragmentManager.beginTransaction().replace(
-            R.id.fcv_home_swaplist,
-            followerFragment
-        ).commit()
-    }
-
-    btnHomeRepositorylist.setOnClickListener {
-        supportFragmentManager.beginTransaction().replace(
-            R.id.fcv_home_swaplist,
-            repositoryFragment
-        ).commit()
-    }
-}
- ```
-
-#### 2. RecyclerView 구현하기
-
-> 1. FollowerFragment.xml에 RecyclerView 배치(RepositoryFragment 동일)
-
- ``` kotlin
- <androidx.recyclerview.widget.RecyclerView
-     android:layout_width="match_parent"
-     android:layout_height="match_parent"
-     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
- ```
-
-> 2. RecyclerView에 들어갈 item_follower.xml 추가 및 디자인
-
- ``` kotlin
- <androidx.constraintlayout.widget.ConstraintLayout
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content">
-     ...
- </androidx.constraintlayout.widget.ConstraintLayout>
- ```
-
-> 3. item_follower.xml에 루트를 layout으로 수정, data 태그 추가 및 variable 설정
+> 1. res에 menu타입 리소스 파일 생성 및 item 추가
 
  ``` kotlin
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
+    <item
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/ic_union"
+        android:title="@string/menu_profile" />
+        ...
+</menu>
+ ```
 
-        <variable
-            name="follower"
-            type="com.example.sehun.data.local.HomeFragmentData" />
-    </data>
+> 2. HomeActivity에 ViewPager2 및 BottomNavi 배치
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+ ``` kotlin
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   ... >
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_home_viewpager2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        ... />
 
-        <TextView
-            android:text="@{follower.name}" />
 
-        <TextView
-            android:text="@{follower.introduce}" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnv_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/sopt_white"
+        app:itemIconTint="@color/selector_menu_color"
+        app:itemRippleColor="@color/sopt_main_purple"
+        app:itemTextColor="@color/selector_menu_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_home" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
  ```
 
-> 4. DataClass 추가
+> 3. ViewPagerAdapter 구현
 
  ``` kotlin
-data class HomeFragmentData(
-    val name: String,
-    val introduce: String
-)
+class ViewPagerAdapter(fragmentActivity: FragmentActivity) :
+    FragmentStateAdapter(fragmentActivity) {
+    val fragments = mutableListOf<Fragment>()
+
+    override fun getItemCount(): Int = fragments.size
+
+    override fun createFragment(position: Int): Fragment = fragments[position]
+}
  ```
+ 
+ > 4. ViewPagerAdapter 및 BottomNavi 연동
 
-> 5. RecyclerView Adapter 추가
+ ``` kotlin 
+ private lateinit var viewPagerAdapter: ViewPagerAdapter
+ 
+ private fun initAdapter() {
+    val fragmentList = listOf(ProfileFragment(), HomeFragment(), CameraFragment())
+    viewPagerAdapter = ViewPagerAdapter(this)
+    viewPagerAdapter.fragments.addAll(fragmentList)
 
- ``` kotlin
-class FollowerAdapter(private val itemClick: (HomeFragmentData) -> Unit) :
-    RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>() {
-    val itemList = mutableListOf<HomeFragmentData>()
+    binding.vpHomeViewpager2.adapter = viewPagerAdapter
+}
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowerViewHolder {
-        val binding = ItemFollowerListBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
-        )
-        return FollowerViewHolder(binding, itemClick)
-    }
+    private fun initBottomNavi() {
+    with(binding) {
+        vpHomeViewpager2.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                bnvHome.menu.getItem(position).isChecked = true
+            }
+        })
 
-    override fun onBindViewHolder(holder: FollowerViewHolder, position: Int) {
-        holder.onBind(itemList[position])
-    }
-
-    override fun getItemCount(): Int = itemList.size
-
-    class FollowerViewHolder(
-        private val binding: ItemFollowerListBinding,
-        private val itemClick: (HomeFragmentData) -> Unit
-    ) : RecyclerView.ViewHolder(binding.root) {
-
-        fun onBind(data: HomeFragmentData) {
-            binding.follower = data
-            binding.root.setOnClickListener {
-                itemClick(data)
+        bnvHome.setOnItemSelectedListener { // BottomNavi는 setOnItemSelectedListener 메소드 이용
+            when (it.itemId) {
+                R.id.menu_profile -> {
+                    vpHomeViewpager2.currentItem = FIRST_FRAGMENT
+                    return@setOnItemSelectedListener true
+                }
+                R.id.menu_home -> {
+                    vpHomeViewpager2.currentItem = SECOND_FRAGMENT
+                    return@setOnItemSelectedListener true
+                }
+                else -> {
+                    vpHomeViewpager2.currentItem = THIRD_FRAGMENT
+                    return@setOnItemSelectedListener true
+                }
             }
         }
     }
 }
- ```
 
-> 6. RecyclerView 연동
-
- ``` kotlin
-private fun initMainAdapter() {
-    binding.rvFollowerList.adapter = followerAdapter
+companion object {
+    const val FIRST_FRAGMENT = 0
+    const val SECOND_FRAGMENT = 1
+    const val THIRD_FRAGMENT = 2
 }
  ```
-
-> 7. FollowerFragment에서 RecyclerView item에 데이터 삽입
+ 
+ #### 3. TabLayout 구현
+ 
+ > 1. HomeFragment에 TabLayout 배치 및 구성 요소 디자인
 
  ``` kotlin
-private fun addItemList() {
-    followerAdapter.itemList.addAll(
-        listOf<HomeFragmentData>(
-            HomeFragmentData("권용민", "1111"),
-            HomeFragmentData("김세훈", "2222"),
-            HomeFragmentData("이종찬", "3333"),
-            HomeFragmentData("이혜빈", "4444"),
-            HomeFragmentData("최정원", "5555")
-        )
-    )
+<com.google.android.material.tabs.TabLayout
+        android:id="@+id/tl_homefragment_follow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_homefragment_github"
+        app:tabIndicatorColor="@color/sopt_main_purple"
+        app:tabRippleColor="@color/sopt_main_purple"
+        app:tabSelectedTextColor="@color/sopt_main_purple"
+        app:tabTextAppearance="@style/tab_text"
+        app:tabTextColor="@color/gray">
+        ...
+    </com.google.android.material.tabs.TabLayout>
+ ```
+ 
+ > 2. TabLayout과 연동할 ViewPagerAdapter 구현
+
+ ``` kotlin
+class TabViewPagerAdapter(fragment: Fragment) :
+    FragmentStateAdapter(fragment) {
+    val fragments = mutableListOf<Fragment>()
+    
+    override fun getItemCount(): Int = fragments.size
+
+    override fun createFragment(position: Int): Fragment = fragments[position]
 }
  ```
-
-> 8. RepositoryFragment의 RecyclerView는 Grid Layout으로 디자인
-
- ``` kotlin
- app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
- ```
-
-#### 3. 텍스트 보기 제한하기
-
-> ellipsize 속성 추가, 텍스트가 잘릴 시 '...'로 표기
+ 
+ > 3. ViewPagerAdapter 및 TabLayout 연동
 
  ``` kotlin
- android:ellipsize="end"
- ```
+ private lateinit var tabViewPagerAdapter: TabViewPagerAdapter
+ 
+ private fun initAdapter() {
+    val fragmentList = listOf(FollowFragment(), FollowingFragment())
 
-> maxLines 속성 추가, 텍스트 최대 1줄 표기
+    tabViewPagerAdapter = TabViewPagerAdapter(this)
+    tabViewPagerAdapter.fragments.addAll(fragmentList)
+
+    binding.vpHomefragmentViewpager2.adapter = tabViewPagerAdapter
+    }
+
+private fun initTabLayout() {
+    val tabLabel = listOf("팔로잉", "팔로워")
+
+    TabLayoutMediator(
+        binding.tlHomefragmentFollow,
+        binding.vpHomefragmentViewpager2
+    ) { tab, position ->
+        tab.text = tabLabel[position]
+    }.attach()
+    }
+ ```
+ 
+ #### 4. 프로필 사진 Glide 처리하기
+ 
+ > 1. BuildGradle 수정
 
  ``` kotlin
- android:maxLines="1"
+ //glide
+ implementation 'com.github.bumptech.glide:glide:4.13.0'
+ annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
  ```
+ 
+ > 2. BindingAdapter에 Glide함수 추가
+
+ ``` kotlin
+@JvmStatic
+@BindingAdapter("imgGlide")
+fun setGlideImage(imageview: ImageView, image: Int) {
+    Glide.with(imageview.context)
+        .load(image)
+        .circleCrop()
+        .into(imageview)
+}
+ ```
+ 
+ > 3. 필요한 레이아웃에서 적용
+
+ ``` kotlin
+ app:imgGlide="@{home.resid}"
+}
+ ```
+ 
+ > 4. Glide된 이미지 테두리 만들기(약간 야매..)
+
+ ``` kotlin
+ android:background="@drawable/circle_profile_border_2dp"
+ android:padding="2dp"
+ ```
+---
+
+### &#10004; 성장과제 : ViewPager2 중첩 스크롤 문제 해결하기
+
+<img src="https://user-images.githubusercontent.com/81347125/169517178-f402fe4f-44ef-4c05-95e5-d33ce2940aa8.png" width = "40%">
+<br>
+
+#### 1. 방향이 동일한 ViewPager2 객체 내의 스크롤 뷰를 지원하기 위해 ViewPager2 객체의 requestDisallowInterceptTouchEvent()를 호출
+
+> 1. [NestedScrollableHost](https://github.com/macbook-plz-30th-THE-SOPT-android-team4/SeHun/blob/main/app/src/main/java/com/example/sehun/util/NestedScrollableHost.kt) 추가
+
+> 2. 필요한 자식 ViewPager2에 아래와 같이 추가
+
+ ``` kotlin
+ <com.example.sehun.util.NestedScrollableHost
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        ...>
+
+        <androidx.viewpager2.widget.ViewPager2
+           ... />
+
+  </com.example.sehun.util.NestedScrollableHost>
+ ```
+
+> 부모와 자식이 ScrollView가 되는 상황이라면, 부모.requestDisallowInterceptTouchEvent(true)를 통해 부모에게 TouchEvent를 빼앗기지 않도록 하는 메소드임  
+
+> NestedScrolableHost 레이아웃은 스크롤이 가능한 하나의 자식만 가질 수 있음
 
 ---
 
-### &#10004; 성장과제 : Intent 전달, RecyclerView item Event 및 ItemDecoration 구현
+### &#10004; 도전과제 : 갤러리에서 이미지 호출하기
 
-<img src="https://user-images.githubusercontent.com/81347125/167101041-465064d0-2caa-4178-8149-93db80038127.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101036-348e2e96-9e72-4840-92d0-2a7e353d02b3.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167101026-f49cff09-7b41-42d4-b81d-e8d999aa6edc.png" width="33%">
+<img src="https://user-images.githubusercontent.com/81347125/169519541-3d3352d1-8600-4d31-8c50-7566498d00bc.png" width = "40%"> 
 <br>
 
-#### 1. RecyclerView 아이템 클릭 시, 해당 아이템의 이름과 설명 값을 DetailActivity에서 보여주기
-
-> 1. FollowerAdapter의 viewHolder 클래스 내부 onBind함수에 아이템 클릭리스너 구현
+> 1. Manifest에 권한 추가
 
  ``` kotlin
-fun onBind(data: HomeFragmentData) {
-    binding.follower = data
-    binding.root.setOnClickListener {
-        itemClick(data)
+<!--갤러리 권한-->
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<!--카메라 권한-->
+<uses-permission android:name="android.permission.CAMERA" />
+ ```
+ 
+ > 2. CameraFragment에 intent를 이용한 갤러리 접근 관련 메소드 추가
+
+ ``` kotlin
+val requestPermissionLauncher =
+    registerForActivityResult(ActivityResultContracts.RequestPermission()) { result: Boolean ->
+        if (result) {
+            requireContext().shortToast("권한요청이 승인되었습니다.")
+            selectImage()
+        } else
+            requireContext().shortToast("권한요청이 거절되었습니다.")
+    }
+
+private fun aboutPermission() {
+    if (ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        ) == PackageManager.PERMISSION_GRANTED
+    ) {
+        requireContext().shortToast("권한이 이미 있습니다.")
+        selectImage()
+    } else if (ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        ) == PackageManager.PERMISSION_DENIED
+    ) {
+        requireContext().shortToast("권한이 없습니다.")
+        requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
     }
 }
  ```
-
-> 2. FollowerFragment에서 putExtra를 이용해, Intent에 값을 담고 넘겨줌
+ 
+ > 3. 이미지를 uri형식으로 받고, Glide 처리 후 띄워주기
 
  ``` kotlin
-private fun getInfo() {
-    followerAdapter = FollowerAdapter {
-        val intent = Intent(requireContext(), DetailActivity::class.java)
-        intent.apply {
-            putExtra("name", it.name)
-            putExtra("introduce", it.introduce)
+val getContent =
+    registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        context?.let {
+            Glide.with(it)
+                .load(uri)
+                .circleCrop()
+                .into(binding.ivCameraSelectedimage)
         }
-        startActivity(intent)
     }
+    
+private fun selectImage() {
+ 
+    getContent.launch("image/*")
 }
  ```
-
-> 3. Intent 값을 받고, 텍스트 뷰 세팅
-
- ``` kotlin
-private fun setInfo() {
-    val name = intent.getStringExtra("name")
-    val intro = intent.getStringExtra("introduce")
-    binding.tvDetailName.text = name.toString()
-    binding.tvDetailDetailintro.text = intro.toString()
-}
- ```
-
----
-
-### &#10004; 도전과제 : 보일러 플레이트 코드 및 notifyDataSetChanged 개선방안
-
-<img src="https://user-images.githubusercontent.com/81347125/167100998-7f1b1e02-c798-43c4-9a42-736913aa13b6.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167100964-20953aef-21e9-43a0-961d-5bff0e6e4f07.png" width = "33%">
-<br>
-
+ 
 ---
 
 ## &#128204; 추가자료
 
-#### 1. RecyclerView 더 [알아보기](https://s2ehun.tistory.com/)
+#### 1. Glide 더 [알아보기](https://s2ehun.tistory.com/)
 
-#### 2. notifyDataSetChanged 더 [알아보기](https://s2ehun.tistory.com/)
+#### 2. ViewPager2 중첩 스크롤 문제 더 [알아보기](https://s2ehun.tistory.com/)
