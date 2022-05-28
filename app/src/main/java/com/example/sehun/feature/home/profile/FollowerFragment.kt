@@ -27,7 +27,6 @@ class FollowerFragment : Fragment() {
         initNetwork()
         getInfo()
         initMainAdapter()
-
         return binding.root
     }
 
