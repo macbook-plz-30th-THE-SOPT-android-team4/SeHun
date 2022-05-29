@@ -4,8 +4,8 @@
 
 | Task           |1 week|2 week|3week|4 week|5 week|6 week|7 week|
 |----------------|---------------|---------------|----------------|-----------|-----------|-----------|-----------|
-| 필수 과제 | <li> [x] LV 1-1</li><li> [x] LV 1-2</li><li> [x] LV 1-3 | <li> [x] LV 1-1</li><li> [x] LV 1-2</li> |<li> [x] LV 1</li> |　-|　-|　-|　-|
-| 성장 과제 | <li> [x] LV 2-1</li><li> [x] LV 2-2 | <li> [x] LV 2-1 |<li> [x] LV 2</li> |　-|　-|　-|　-|
+| 필수 과제 | <li> [x] LV 1-1</li><li> [x] LV 1-2</li><li> [x] LV 1-3 | <li> [x] LV 1-1</li><li> [x] LV 1-2</li> |<li> [x] LV 1</li> |<li> [x] LV 1</li> |　-|　-|　-|
+| 성장 과제 | <li> [x] LV 2-1</li><li> [x] LV 2-2 | <li> [x] LV 2-1 |<li> [x] LV 2</li> | <li> [x] LV 2-1</li><li> [x] LV 2-2 |　-|　-|　-|
 | 도전 과제 | <li> [x] LV 3-1</li> |　-|<li> [x] LV 3</li> |　-|　-|　-|　-|
 
 <br/>
