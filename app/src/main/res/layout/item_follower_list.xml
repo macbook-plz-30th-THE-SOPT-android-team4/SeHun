@@ -7,7 +7,7 @@
 
         <variable
             name="follower"
-            type="com.example.sehun.data.local.FollowerFragmentData" />
+            type="com.example.sehun.data.remote.response.ResponseHome" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,7 +15,6 @@
         android:layout_height="wrap_content">
 
         <ImageView
-
             android:id="@+id/iv_follower_profile"
             android:layout_width="80dp"
             android:layout_height="80dp"
@@ -24,7 +23,7 @@
             android:layout_marginBottom="24dp"
             android:background="@drawable/circle_profile_border_2dp"
             android:padding="1dp"
-            app:imgGlide="@{follower.img}"
+            app:imgGlideStr="@{follower.avatar_url}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -34,30 +33,16 @@
             android:id="@+id/tv_follower_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginStart="40dp"
             android:fontFamily="@font/notosanskr_bold"
-            android:text="@{follower.name}"
+            android:text="@{follower.login}"
             android:textColor="@color/sopt_black"
-            android:textSize="16sp"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_follower_profile"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="안녕안녕" />
 
-        <TextView
-            android:id="@+id/tv_follower_introduce"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginBottom="24dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/notosanskr_regular"
-            android:maxLines="1"
-            android:text="@{follower.introduce}"
-            android:textColor="@color/sopt_darkgray"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iv_follower_profile"
-            tools:text="안녕안녕" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

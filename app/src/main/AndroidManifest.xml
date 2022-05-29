@@ -22,7 +22,7 @@
             android:exported="false" />
         <activity
             android:name=".feature.home.HomeActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".feature.SignUpActivity"
             android:exported="false" />
