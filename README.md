@@ -51,6 +51,6 @@
 |  <center>분류</center> |  <center>내용</center> |  <center>README 이동</center> |  <center>기간</center> 
 |:--------:|:--------:|:--------:|:--------:|
 |**4주차 세미나**|Retrofit2와 Postman|-|22/05/07
-|**4주차 과제**|서버 통신 구현하기|[Link💚](https://github.com/macbook-plz-30th-THE-SOPT-android-team4/SeHun/blob/main/Assignment_README/Assignment_3_README.md)|~22/05/13
+|**4주차 과제**|서버 통신 구현하기|[Link💚](https://github.com/macbook-plz-30th-THE-SOPT-android-team4/SeHun/blob/main/Assignment_README/Assignment_4_README.md)|~22/05/13
 
 
