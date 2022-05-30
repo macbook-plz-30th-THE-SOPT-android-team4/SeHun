@@ -1,6 +1,6 @@
 # &#128154; Android-SeHun
 
-## &#128204; 3 week
+## &#128204; 4 week
 
 | Task           |1 week|2 week|3week|4 week|5 week|6 week|7 week|
 |----------------|---------------|---------------|----------------|-----------|-----------|-----------|-----------|
@@ -12,233 +12,128 @@
 
 ## &#128204; 구현 결과
 
-<img src="" width="60%">
+<img src="https://user-images.githubusercontent.com/81347125/171039345-371901db-ff27-47ab-966f-4440d9228fae.gif" width="30%">                                              <img src="https://user-images.githubusercontent.com/81347125/171049202-94563256-f0a9-4a22-b6b2-48887961975e.PNG" width="46%">
 <br>
 
 ## &#128204; 과제 리뷰
 
-### &#10004; 필수과제 : Design(Font, ViewPager2, BottomNavigation, TabLayout, Glide) 적용
+### &#10004; 필수과제 : 로그인 및 회원가입 서버통신 구현 [(API 문서링크)](http://13.124.62.236/api-docs/)
 
-<img src="https://user-images.githubusercontent.com/81347125/169509966-1c8e9a33-f2db-44c9-b555-508f534a753e.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/169509963-7a23c8f1-7c9a-4dfc-9ab5-84d6b5da5cc6.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/169509955-a86d1753-9410-413a-881c-56499b80073e.png" width="33%">
+<img src="https://user-images.githubusercontent.com/81347125/171039665-e93b3873-bab8-42fc-881c-21211c64cb3a.png" width = "60%">
+
 <br>
 
 
-#### 1. Font 적용
+#### 1. 라이브러리 추가 및 AndroidManifest 설정
 
-> 추후 textAppearance로 수정하기 위해, 따로 fontfamily를 만들지 않고, 바로 적용시킴
+> build.gradle(app) 세팅
 
  ``` kotlin
-  android:fontFamily="@font/notosanskr_bold"
+// 서버 연결을 위한 Retrofit2
+implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+// Retrofit2에서 gson 사용을 위한 컨버터
+implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+// gson 오픈소스 컨버터
+implementation 'com.google.code.gson:gson:2.8.9'
+ ```
+ 
+ > AndroidManifest 세팅
+
+ ``` kotlin
+ <uses-permission android:name="android.permission.INTERNET"/>
+
+// http통신 시 해당 속성 true로 변환, https 권장
+android:usesCleartextTraffic="true"
  ```
 
-#### 2. ViewPager2 및 BottomNavigation 구현
+#### 2. Request/Response 객체 설계(SignIn, SignUp 동일)
 
-> 1. res에 menu타입 리소스 파일 생성 및 item 추가
+> Request Body, Json 객체의 키 값과 타입을 각각 data class 변수명, 타입과 일치 시킴
 
  ``` kotlin
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item
-        android:id="@+id/menu_profile"
-        android:icon="@drawable/ic_union"
-        android:title="@string/menu_profile" />
-        ...
-</menu>
+data class RequestSignIn(
+// JSON의 키 값과 data class의 변수명이 다른 경우, 자동으로 맵핑돼서 변환시켜줌
+    @SerializedName("email") 
+    val id: String,
+    val password: String
+)
  ```
 
-> 2. HomeActivity에 ViewPager2 및 BottomNavi 배치
+> Response Body, Json 객체의 키 값과 타입을 각각 data class 변수명, 타입과 일치 시킴
 
  ``` kotlin
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   ... >
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vp_home_viewpager2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        ... />
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnv_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/sopt_white"
-        app:itemIconTint="@color/selector_menu_color"
-        app:itemRippleColor="@color/sopt_main_purple"
-        app:itemTextColor="@color/selector_menu_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_home" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+data class ResponseSignIn(
+    val email: String,
+    val name: String
+)
  ```
+ 
+ #### 3. Retrofit Interface 설계
 
-> 3. ViewPagerAdapter 구현
+> http 메소드 URI, 헤더 등 상호작용방법 정의, interface 생성 후 필요한 함수 구현
 
  ``` kotlin
-class ViewPagerAdapter(fragmentActivity: FragmentActivity) :
-    FragmentStateAdapter(fragmentActivity) {
-    val fragments = mutableListOf<Fragment>()
+interface SoptService {
 
-    override fun getItemCount(): Int = fragments.size
+    @POST("/auth/signup")
+    fun postSignUp(
+        @Body body: RequestSignUp
+    ): Call<ResponseWrapper<ResponseSignUp>>
 
-    override fun createFragment(position: Int): Fragment = fragments[position]
+    @POST("/auth/signin")
+    fun postSignIn(
+        @Body body: RequestSignIn
+    ): Call<ResponseWrapper<ResponseSignIn>>
+}
+ ```
+ 
+ #### 4. Retrofit Interface 실제 구현체(객체) 만들기
+
+> object Creator 생성, 최초 한번 메모리 할당(싱글톤), 이후 그 메모리에 인스턴스를 만들어 사용
+
+ ``` kotlin
+object SoptClient {
+    private const val BASE_URL = "http://13.124.62.236"
+
+    private val retrofit: Retrofit =
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+    val soptService: SoptService = retrofit.create(SoptService::class.java)
 }
  ```
 
- > 4. ViewPagerAdapter 및 BottomNavi 연동
+ #### 5. Callback 등록하여 통신 요청
+
+> requestData에 담아 보냄, 콜백유틸을 통해 코드 간소화
 
  ``` kotlin
- private lateinit var viewPagerAdapter: ViewPagerAdapter
+private fun initNetwork() {
+    val requestSignIn = RequestSignIn(
+        id = binding.etSigninId.text.toString(),
+        password = binding.etSigninPw.text.toString()
+    )
+    val call = SoptClient.soptService.postSignIn(requestSignIn)
 
- private fun initAdapter() {
-    val fragmentList = listOf(ProfileFragment(), HomeFragment(), CameraFragment())
-    viewPagerAdapter = ViewPagerAdapter(this)
-    viewPagerAdapter.fragments.addAll(fragmentList)
-
-    binding.vpHomeViewpager2.adapter = viewPagerAdapter
-}
-
-    private fun initBottomNavi() {
-    with(binding) {
-        vpHomeViewpager2.registerOnPageChangeCallback(object :
-            ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                bnvHome.menu.getItem(position).isChecked = true
-            }
-        })
-
-        bnvHome.setOnItemSelectedListener { // BottomNavi는 setOnItemSelectedListener 메소드 이용
-            when (it.itemId) {
-                R.id.menu_profile -> {
-                    vpHomeViewpager2.currentItem = FIRST_FRAGMENT
-                    return@setOnItemSelectedListener true
-                }
-                R.id.menu_home -> {
-                    vpHomeViewpager2.currentItem = SECOND_FRAGMENT
-                    return@setOnItemSelectedListener true
-                }
-                else -> {
-                    vpHomeViewpager2.currentItem = THIRD_FRAGMENT
-                    return@setOnItemSelectedListener true
-                }
-            }
-        }
-    }
-}
-
-companion object {
-    const val FIRST_FRAGMENT = 0
-    const val SECOND_FRAGMENT = 1
-    const val THIRD_FRAGMENT = 2
+    call.enqueueUtil(onSuccess = {
+        shortToast("${it.data?.email}님 환영합니다!")
+        startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
+    })
 }
  ```
 
- #### 3. TabLayout 구현
-
- > 1. HomeFragment에 TabLayout 배치 및 구성 요소 디자인
-
- ``` kotlin
-<com.google.android.material.tabs.TabLayout
-        android:id="@+id/tl_homefragment_follow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_homefragment_github"
-        app:tabIndicatorColor="@color/sopt_main_purple"
-        app:tabRippleColor="@color/sopt_main_purple"
-        app:tabSelectedTextColor="@color/sopt_main_purple"
-        app:tabTextAppearance="@style/tab_text"
-        app:tabTextColor="@color/gray">
-        ...
-    </com.google.android.material.tabs.TabLayout>
- ```
-
- > 2. TabLayout과 연동할 ViewPagerAdapter 구현
-
- ``` kotlin
-class TabViewPagerAdapter(fragment: Fragment) :
-    FragmentStateAdapter(fragment) {
-    val fragments = mutableListOf<Fragment>()
-
-    override fun getItemCount(): Int = fragments.size
-
-    override fun createFragment(position: Int): Fragment = fragments[position]
-}
- ```
-
- > 3. ViewPagerAdapter 및 TabLayout 연동
-
- ``` kotlin
- private lateinit var tabViewPagerAdapter: TabViewPagerAdapter
-
- private fun initAdapter() {
-    val fragmentList = listOf(FollowFragment(), FollowingFragment())
-
-    tabViewPagerAdapter = TabViewPagerAdapter(this)
-    tabViewPagerAdapter.fragments.addAll(fragmentList)
-
-    binding.vpHomefragmentViewpager2.adapter = tabViewPagerAdapter
-    }
-
-private fun initTabLayout() {
-    val tabLabel = listOf("팔로잉", "팔로워")
-
-    TabLayoutMediator(
-        binding.tlHomefragmentFollow,
-        binding.vpHomefragmentViewpager2
-    ) { tab, position ->
-        tab.text = tabLabel[position]
-    }.attach()
-    }
- ```
-
- #### 4. 프로필 사진 Glide 처리하기
-
- > 1. BuildGradle 수정
-
- ``` kotlin
- //glide
- implementation 'com.github.bumptech.glide:glide:4.13.0'
- annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
- ```
-
- > 2. BindingAdapter에 Glide함수 추가
-
- ``` kotlin
-@JvmStatic
-@BindingAdapter("imgGlide")
-fun setGlideImage(imageview: ImageView, image: Int) {
-    Glide.with(imageview.context)
-        .load(image)
-        .circleCrop()
-        .into(imageview)
-}
- ```
-
- > 3. 필요한 레이아웃에서 적용
-
- ``` kotlin
- app:imgGlide="@{home.resid}"
-}
- ```
-
- > 4. Glide된 이미지 테두리 만들기(약간 야매..)
-
- ``` kotlin
- android:background="@drawable/circle_profile_border_2dp"
- android:padding="2dp"
- ```
 ---
 
-### &#10004; 성장과제 : ViewPager2 중첩 스크롤 문제 해결하기
+### &#10004; 성장과제 : GitHub API 연동 및 Wrapper Class 구현
 
-<img src="https://user-images.githubusercontent.com/81347125/169517178-f402fe4f-44ef-4c05-95e5-d33ce2940aa8.png" width = "40%">
+<img src="https://user-images.githubusercontent.com/81347125/171039664-5b7ee6d9-6abe-4646-94d4-698de98f931e.png" width = "45%"> <img src="https://user-images.githubusercontent.com/81347125/171039663-50e6a636-cba1-42c7-88ad-cbe12eff874a.png" width = "45%">
 <br>
 
-#### 1. 방향이 동일한 ViewPager2 객체 내의 스크롤 뷰를 지원하기 위해 ViewPager2 객체의 requestDisallowInterceptTouchEvent()를 호출
+#### 1. 
 
 > 1. [NestedScrollableHost](https://github.com/macbook-plz-30th-THE-SOPT-android-team4/SeHun/blob/main/app/src/main/java/com/example/sehun/util/NestedScrollableHost.kt) 추가
 
@@ -264,67 +159,10 @@ fun setGlideImage(imageview: ImageView, image: Int) {
 
 ### &#10004; 도전과제 : 갤러리에서 이미지 호출하기
 
-<img src="https://user-images.githubusercontent.com/81347125/169519541-3d3352d1-8600-4d31-8c50-7566498d00bc.png" width = "40%">
+<img src="https://user-images.githubusercontent.com/81347125/171039661-1cd0eaa2-42cd-4d69-a7e1-08152588d813.png" width = "60%">
 <br>
 
-> 1. Manifest에 권한 추가
 
- ``` kotlin
-<!--갤러리 권한-->
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-<!--카메라 권한-->
-<uses-permission android:name="android.permission.CAMERA" />
- ```
-
- > 2. CameraFragment에 intent를 이용한 갤러리 접근 관련 메소드 추가
-
- ``` kotlin
-val requestPermissionLauncher =
-    registerForActivityResult(ActivityResultContracts.RequestPermission()) { result: Boolean ->
-        if (result) {
-            requireContext().shortToast("권한요청이 승인되었습니다.")
-            selectImage()
-        } else
-            requireContext().shortToast("권한요청이 거절되었습니다.")
-    }
-
-private fun aboutPermission() {
-    if (ContextCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.READ_EXTERNAL_STORAGE
-        ) == PackageManager.PERMISSION_GRANTED
-    ) {
-        requireContext().shortToast("권한이 이미 있습니다.")
-        selectImage()
-    } else if (ContextCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.READ_EXTERNAL_STORAGE
-        ) == PackageManager.PERMISSION_DENIED
-    ) {
-        requireContext().shortToast("권한이 없습니다.")
-        requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
-    }
-}
- ```
-
- > 3. 이미지를 uri형식으로 받고, Glide 처리 후 띄워주기
-
- ``` kotlin
-val getContent =
-    registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-        context?.let {
-            Glide.with(it)
-                .load(uri)
-                .circleCrop()
-                .into(binding.ivCameraSelectedimage)
-        }
-    }
-
-private fun selectImage() {
-
-    getContent.launch("image/*")
-}
- ```
 
 ---
 
