@@ -46,7 +46,9 @@ class SignUpActivity : AppCompatActivity() {
         val call = SoptClient.soptService.postSignUp(requestSignUp)
 
         call.enqueueUtil(onSuccess = {
-            shortToast("회원가입이 완료되었습니다!")
+            if (!it.success) {
+                shortToast("중복된 아이디 혹은 비밀번호입니다!")
+            } else shortToast("회원가입이 완료되었습니다!")
             passingIntent(requestSignUp.id)
         })
     }
