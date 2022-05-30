@@ -45,4 +45,12 @@
 <hr>
 
 
+<img src="https://user-images.githubusercontent.com/81347125/170883319-a938ff5f-d560-4c7c-8d2e-6c9294827856.png" width = "40%"> <img src="https://user-images.githubusercontent.com/81347125/170883367-5599f562-bcfb-4c15-a0a5-a00dd5eb8880.png" width = "40%">  
+
+
+|  <center>분류</center> |  <center>내용</center> |  <center>README 이동</center> |  <center>기간</center> 
+|:--------:|:--------:|:--------:|:--------:|
+|**4주차 세미나**|Retrofit2와 Postman|-|22/05/07
+|**4주차 과제**|서버 통신 구현하기|[Link💚](https://github.com/macbook-plz-30th-THE-SOPT-android-team4/SeHun/blob/main/Assignment_README/Assignment_3_README.md)|~22/05/13
+
 
