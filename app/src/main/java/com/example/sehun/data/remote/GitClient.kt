@@ -1,6 +1,6 @@
 package com.example.sehun.data.remote
 
-import com.example.sehun.data.remote.api.SoptService
+import com.example.sehun.data.remote.api.GitService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -13,5 +13,5 @@ object GitClient {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-    val soptService: SoptService = retrofit.create(SoptService::class.java)
+    val gitService: GitService = retrofit.create(GitService::class.java)
 }
