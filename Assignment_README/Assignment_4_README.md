@@ -194,11 +194,64 @@ object GitClient {
     val gitService: GitService = retrofit.create(GitService::class.java)
 }
  ```
+ 
+ #### 4. 서버통신 구현부
+ 
+ > Path 값으로 내 계정아이디를 넣어줌,  Response받은 List를 어댑터와 연결
 
-> 부모와 자식이 ScrollView가 되는 상황이라면, 부모.requestDisallowInterceptTouchEvent(true)를 통해 부모에게 TouchEvent를 빼앗기지 않도록 하는 메소드임
+ ``` kotlin
+private fun initNetwork() {
+    val username = "s9hn"
+    val call = GitClient.gitService.getGit(username)
 
-> NestedScrolableHost 레이아웃은 스크롤이 가능한 하나의 자식만 가질 수 있음
+    call.enqueueUtil(onSuccess = {
+        addItemList(it as MutableList<ResponseHome>)
+    })
+}
 
+@SuppressLint("NotifyDataSetChanged")
+private fun addItemList(data: List<ResponseHome>) {
+    followerAdapter.itemList = data as MutableList<ResponseHome>
+    followerAdapter.notifyDataSetChanged()
+}
+ ```
+ 
+ > FollowerAdapter에 itemClick -> Response받은 깃허브링크로 이동
+ 
+ ``` kotlin
+private fun callWeb() {
+    followerAdapter = FollowerAdapter {
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse(it.html_url)
+            )
+        )
+    }
+}
+ ```
+ 
+ #### 5. Wrapper Class
+ 
+ > ResponseWrapper 구현
+
+ ``` kotlin
+data class ResponseWrapper<T>(
+    val status: Int,
+    val success: Boolean,
+    val message: String,
+    val data: T? = null
+)
+ ```
+ 
+ > Service 코드에서 아래와 같이 List<>로 감싸줌
+
+``` kotlin
+ @POST("/auth/signin")
+    fun postSignIn(
+        @Body body: RequestSignIn
+    ): Call<ResponseWrapper<ResponseSignIn>>
+```
 ---
 
 ### &#10004; 도전과제 : 갤러리에서 이미지 호출하기
@@ -212,6 +265,4 @@ object GitClient {
 
 ## &#128204; 추가자료
 
-#### 1. Glide 더 [알아보기](https://s2ehun.tistory.com/)
-
-#### 2. ViewPager2 중첩 스크롤 문제 더 [알아보기](https://s2ehun.tistory.com/)
+#### 1. Coroutines 더 [알아보기](https://s2ehun.tistory.com/)
