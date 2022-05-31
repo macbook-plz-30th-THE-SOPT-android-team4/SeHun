@@ -68,13 +68,13 @@
     <tr>
         <td><b>5주차 세미나</b></td>
         <td>디자인 합동 세미나</td>
-        <td>21/05/14</td>
+        <td>22/05/14</td>
         <td rowspan="2"><a href="https://github.com/SOPT-30th-Joint-Seminar-15/Client-Android">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Link💚</td>
     </tr>
     <tr>
         <td><b>6주차 세미나</b></td>
         <td>서버 합동 세미나</td>
-        <td>21/05/21</td>
+        <td>22/05/21</td>
     </tr>
 </table>
 <hr>
