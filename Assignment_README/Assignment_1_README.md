@@ -99,7 +99,7 @@
 
 ### &#10004; 성장과제 : 화면이동 + @, 사진 1:1 비율 및 스크롤 구현
 
-<img src="https://user-images.githubusercontent.com/81347125/164283543-546238d9-593a-44f3-81b8-27174ba3d30c.jpg" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/164283553-a906587e-8c60-4fb1-bd25-bd767869635f.jpg" width = "33%"> 
+<img src="https://user-images.githubusercontent.com/81347125/164283543-546238d9-593a-44f3-81b8-27174ba3d30c.jpg" width = "45%"> <img src="https://user-images.githubusercontent.com/81347125/164283553-a906587e-8c60-4fb1-bd25-bd767869635f.jpg" width = "45%"> 
 <br>
 
 #### 1. 회원가입 성공 시, 입력했던 아이디 및 패스워드 로그인 뷰로 이동(registerForActivityResult)
@@ -177,7 +177,7 @@
 
 ### &#10004; 도전과제 : DataBinding 및 MVVM 구현
 
-<img src="https://user-images.githubusercontent.com/81347125/164284287-2224e365-c1ee-41a8-91c1-46770970ea4a.jpg" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/164284514-c3f22daf-7efe-46d2-8e56-44c50a24e244.jpg" width = "33%"> 
+<img src="https://user-images.githubusercontent.com/81347125/164284287-2224e365-c1ee-41a8-91c1-46770970ea4a.jpg" width = "45%"> <img src="https://user-images.githubusercontent.com/81347125/164284514-c3f22daf-7efe-46d2-8e56-44c50a24e244.jpg" width = "45%"> 
 <br>
 
 #### 1. DataBinding을 사용해 데이터 넣기
