@@ -55,7 +55,7 @@
 <hr>
 
 
-<img src="https://user-images.githubusercontent.com/81347125/171166824-f916c74a-5919-4f3f-9c2d-053a6ac600a5.png" width = "60%">
+<img src="https://user-images.githubusercontent.com/81347125/171166824-f916c74a-5919-4f3f-9c2d-053a6ac600a5.png" width = "50%">
 
 
 <table>
@@ -69,7 +69,7 @@
         <td><b>5주차 세미나</b></td>
         <td>디자인 합동 세미나</td>
         <td>21/05/14</td>
-        <td rowspan="2"><a href="https://github.com/SOPT-30th-Joint-Seminar-15/Client-Android">Link💚</td>
+        <td rowspan="2"><a href="https://github.com/SOPT-30th-Joint-Seminar-15/Client-Android">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Link💚</td>
     </tr>
     <tr>
         <td><b>6주차 세미나</b></td>
@@ -80,7 +80,7 @@
 <hr>
 
 
-<img src="https://user-images.githubusercontent.com/81347125/169655860-9be91b10-577e-4a02-8b9e-071860b510b1.png" width = "60%">
+<img src="https://user-images.githubusercontent.com/81347125/169655860-9be91b10-577e-4a02-8b9e-071860b510b1.png" width = "50%">
 
 
 |  <center>분류</center> |  <center>내용</center> |  <center>기간</center> |  <center>README 이동</center> 
