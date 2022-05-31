@@ -254,7 +254,7 @@ data class ResponseWrapper<T>(
 ```
 ---
 
-### &#10004; 도전과제 : 갤러리에서 이미지 호출하기
+### &#10004; 도전과제 : 비동기 처리
 
 <img src="https://user-images.githubusercontent.com/81347125/171039661-1cd0eaa2-42cd-4d69-a7e1-08152588d813.png" width = "60%">
 <br>
