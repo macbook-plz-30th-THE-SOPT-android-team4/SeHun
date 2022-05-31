@@ -17,7 +17,7 @@
 
 ## &#128204; 과제 리뷰
 
-### &#10004; 필수과제 : 로그인 및 회원가입 서버통신 구현 [(API 문서링크)](http://13.124.62.236/api-docs/)
+### &#10004; 필수과제 : 로그인 및 회원가입 서버통신 구현 [(SOPT API)](http://13.124.62.236/api-docs/)
 
 <img src="https://user-images.githubusercontent.com/81347125/171039665-e93b3873-bab8-42fc-881c-21211c64cb3a.png" width = "60%">
 
@@ -109,7 +109,7 @@ object SoptClient {
 
  #### 5. Callback 등록하여 통신 요청
 
-> requestData에 담아 보냄, 콜백유틸을 통해 코드 간소화
+> SignIn 콜백 구현부, Util을 이용해 코드 간소화
 
  ``` kotlin
 private fun initNetwork() {
@@ -120,35 +120,79 @@ private fun initNetwork() {
     val call = SoptClient.soptService.postSignIn(requestSignIn)
 
     call.enqueueUtil(onSuccess = {
-        shortToast("${it.data?.email}님 환영합니다!")
+        if (!it.success) {
+            shortToast("잘못된 아이디 혹은 비밀번호 입니다!")
+        } else shortToast("${it.data?.email}님 환영합니다!")
         startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
+    })
+}
+ ```
+ 
+ > SignUp 콜백 구현부
+
+ ``` kotlin
+private fun initNetwork() {
+    val requestSignUp = RequestSignUp(
+        name = binding.etSignupName.text.toString(),
+        id = binding.etSignupId.text.toString(),
+        password = binding.etSignupPw.text.toString()
+    )
+    val call = SoptClient.soptService.postSignUp(requestSignUp)
+
+    call.enqueueUtil(onSuccess = {
+        if (!it.success) {
+            shortToast("중복된 아이디 혹은 비밀번호입니다!")
+        } else shortToast("회원가입이 완료되었습니다!")
+        passingIntent(requestSignUp.id)
     })
 }
  ```
 
 ---
 
-### &#10004; 성장과제 : GitHub API 연동 및 Wrapper Class 구현
+### &#10004; 성장과제 : GitHub API 연동 및 Wrapper Class 구현 [(GIT API)](https://docs.github.com/en/rest/users/followers#list-the-people-a-user-follows)
 
 <img src="https://user-images.githubusercontent.com/81347125/171039664-5b7ee6d9-6abe-4646-94d4-698de98f931e.png" width = "45%"> <img src="https://user-images.githubusercontent.com/81347125/171039663-50e6a636-cba1-42c7-88ad-cbe12eff874a.png" width = "45%">
 <br>
 
-#### 1. 
+#### 1. Response 객체 설계
 
-> 1. [NestedScrollableHost](https://github.com/macbook-plz-30th-THE-SOPT-android-team4/SeHun/blob/main/app/src/main/java/com/example/sehun/util/NestedScrollableHost.kt) 추가
-
-> 2. 필요한 자식 ViewPager2에 아래와 같이 추가
+> GET을 요청하기에 RequestBody는 필요없음, 명세서에서 필요한 키 값만 추가
 
  ``` kotlin
- <com.example.sehun.util.NestedScrollableHost
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        ...>
+ data class ResponseHome(
+    val login: String,
+    val avatar_url: String,
+    val html_url: String,
+    )
+ ```
+ 
+ #### 2. Git Interface 설계
 
-        <androidx.viewpager2.widget.ViewPager2
-           ... />
+> POST와 다르게 @Path parameters 필요
 
-  </com.example.sehun.util.NestedScrollableHost>
+ ``` kotlin
+interface GitService {
+    @GET("/users/{username}/following")
+    fun getGit(
+        @Path("username") username: String
+    ): Call<List<ResponseHome>>
+}
+ ```
+ 
+ #### 3. 구현체(object) 설계
+ ``` kotlin
+object GitClient {
+    private const val BASE_URL = "https://api.github.com/"
+
+    private val retrofit: Retrofit =
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+    val gitService: GitService = retrofit.create(GitService::class.java)
+}
  ```
 
 > 부모와 자식이 ScrollView가 되는 상황이라면, 부모.requestDisallowInterceptTouchEvent(true)를 통해 부모에게 TouchEvent를 빼앗기지 않도록 하는 메소드임
