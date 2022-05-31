@@ -25,7 +25,7 @@ class FollowerFragment : Fragment() {
     ): View? {
         _binding = FragmentFollowerBinding.inflate(layoutInflater, container, false)
         initNetwork()
-        getInfo()
+        callWeb()
         initMainAdapter()
         return binding.root
     }
@@ -35,9 +35,14 @@ class FollowerFragment : Fragment() {
         _binding = null
     }
 
-    private fun getInfo() {
+    private fun callWeb() {
         followerAdapter = FollowerAdapter {
-            callWeb(it.html_url)
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse(it.html_url)
+                )
+            )
         }
     }
 
@@ -47,7 +52,7 @@ class FollowerFragment : Fragment() {
 
     private fun initNetwork() {
         val username = "s9hn"
-        val call = GitClient.soptService.getGit(username)
+        val call = GitClient.gitService.getGit(username)
 
         call.enqueueUtil(onSuccess = {
             addItemList(it as MutableList<ResponseHome>)
@@ -58,14 +63,5 @@ class FollowerFragment : Fragment() {
     private fun addItemList(data: List<ResponseHome>) {
         followerAdapter.itemList = data as MutableList<ResponseHome>
         followerAdapter.notifyDataSetChanged()
-    }
-
-    private fun callWeb(url: String) {
-        startActivity(
-            Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse(url)
-            )
-        )
     }
 }
