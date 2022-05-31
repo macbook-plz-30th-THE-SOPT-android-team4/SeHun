@@ -12,7 +12,7 @@
 
 ## &#128204; 구현 결과
 
-<img src="https://user-images.githubusercontent.com/81347125/167109903-d18f55f1-ec5f-4558-a3ad-17d20706f196.gif" width="60%"> 
+<img src="https://user-images.githubusercontent.com/81347125/167109903-d18f55f1-ec5f-4558-a3ad-17d20706f196.gif" width="30%"> 
 <br>
 
 ## &#128204; 과제 리뷰
@@ -254,7 +254,7 @@ private fun setInfo() {
 
 ### &#10004; 도전과제 : 보일러 플레이트 코드 및 notifyDataSetChanged 개선방안
 
-<img src="https://user-images.githubusercontent.com/81347125/167100998-7f1b1e02-c798-43c4-9a42-736913aa13b6.png" width = "33%"> <img src="https://user-images.githubusercontent.com/81347125/167100964-20953aef-21e9-43a0-961d-5bff0e6e4f07.png" width = "33%"> 
+<img src="https://user-images.githubusercontent.com/81347125/167100998-7f1b1e02-c798-43c4-9a42-736913aa13b6.png" width = "45%"> <img src="https://user-images.githubusercontent.com/81347125/167100964-20953aef-21e9-43a0-961d-5bff0e6e4f07.png" width = "45%"> 
 <br>
 
 ---
