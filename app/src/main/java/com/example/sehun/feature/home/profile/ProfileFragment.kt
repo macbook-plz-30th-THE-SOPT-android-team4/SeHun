@@ -1,5 +1,6 @@
 package com.example.sehun.feature.home.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +34,11 @@ class ProfileFragment : Fragment() {
             .commit()
 
         with(binding) {
+
+            ivProfileBtnsetting.setOnClickListener {
+
+                startActivity(Intent(requireContext(), SettingActivity::class.java))
+            }
 
             btnHomeFollowerlist.isSelected = true
 

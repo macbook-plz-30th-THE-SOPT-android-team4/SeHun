@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.sehun.data.local.RepositoryFragmentData
 import com.example.sehun.databinding.FragmentRepositoryBinding
-import com.example.sehun.feature.DetailActivity
 
 class RepositoryFragment : Fragment() {
     private var _binding: FragmentRepositoryBinding? = null
