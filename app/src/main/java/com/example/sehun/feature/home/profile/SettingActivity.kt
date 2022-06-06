@@ -1,7 +1,7 @@
 package com.example.sehun.feature.home.profile
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.sehun.R
 
 class SettingActivity : AppCompatActivity() {
