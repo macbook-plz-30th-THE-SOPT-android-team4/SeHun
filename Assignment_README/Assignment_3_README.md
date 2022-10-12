@@ -12,7 +12,7 @@
 
 ## &#128204; 구현 결과
 
-<img src="https://user-images.githubusercontent.com/81347125/169523368-0f123944-66d8-4520-b6a6-eb9684c2ab44.gif" width="60%">
+<img src="https://user-images.githubusercontent.com/81347125/169523368-0f123944-66d8-4520-b6a6-eb9684c2ab44.gif" width="30%">
 <br>
 
 ## &#128204; 과제 리뷰
@@ -235,7 +235,7 @@ fun setGlideImage(imageview: ImageView, image: Int) {
 
 ### &#10004; 성장과제 : ViewPager2 중첩 스크롤 문제 해결하기
 
-<img src="https://user-images.githubusercontent.com/81347125/169517178-f402fe4f-44ef-4c05-95e5-d33ce2940aa8.png" width = "40%">
+<img src="https://user-images.githubusercontent.com/81347125/169517178-f402fe4f-44ef-4c05-95e5-d33ce2940aa8.png" width = "60%">
 <br>
 
 #### 1. 방향이 동일한 ViewPager2 객체 내의 스크롤 뷰를 지원하기 위해 ViewPager2 객체의 requestDisallowInterceptTouchEvent()를 호출
@@ -264,7 +264,7 @@ fun setGlideImage(imageview: ImageView, image: Int) {
 
 ### &#10004; 도전과제 : 갤러리에서 이미지 호출하기
 
-<img src="https://user-images.githubusercontent.com/81347125/169519541-3d3352d1-8600-4d31-8c50-7566498d00bc.png" width = "40%"> 
+<img src="https://user-images.githubusercontent.com/81347125/169519541-3d3352d1-8600-4d31-8c50-7566498d00bc.png" width = "60%"> 
 <br>
 
 > 1. Manifest에 권한 추가

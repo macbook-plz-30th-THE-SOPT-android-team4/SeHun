@@ -58,7 +58,9 @@ class SignInActivity : AppCompatActivity() {
         val call = SoptClient.soptService.postSignIn(requestSignIn)
 
         call.enqueueUtil(onSuccess = {
-            shortToast("${it.data?.email}님 환영합니다!")
+            if (!it.success) {
+                shortToast("잘못된 아이디 혹은 비밀번호 입니다!")
+            } else shortToast("${it.data?.email}님 환영합니다!")
             startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
         })
     }
